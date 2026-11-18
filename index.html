@@ -1636,7 +1636,38 @@
       height: 100%;
       object-fit: cover;
       display: block;
-      background: #0e2a1e
+      background: #0e2a1e;
+      opacity: 0
+    }
+
+    .about-video.playing video {
+      opacity: 1
+    }
+
+    .vid-play {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      border: 0;
+      cursor: pointer;
+      display: grid;
+      place-items: center;
+      color: #1E6845;
+      background: rgba(255, 255, 255, .92);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .3);
+      transition: transform .2s
+    }
+
+    .vid-play:hover {
+      transform: translate(-50%, -50%) scale(1.08)
+    }
+
+    .about-video.playing .vid-play {
+      display: none
     }
 
     .tiles {
@@ -7208,12 +7239,14 @@
             <div class="about-grid">
               <div class="about-ph about-video reveal"
                 style="--img:url(https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&amp;fit=crop&amp;w=1600&amp;q=70)">
-                <video controls playsinline preload="metadata"
-                  poster="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&amp;fit=crop&amp;w=1600&amp;q=70"
+                <video playsinline preload="metadata"
                   aria-label="Our Word, We Will Save - Bangladesh Carbon Network video">
                   <source src="videos/Our%20word_We%20will%20save.mp4" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
+                <button type="button" class="vid-play" aria-label="Play video">
+                  <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                </button>
               </div>
               <div class="reveal">
                 <h2>Carbon: Our Common Ground</h2>
@@ -10642,5 +10675,17 @@
     })();
     
 </script>
-  </body>
+  <script>
+(function () {
+  var box = document.querySelector('.about-video');
+  if (!box) return;
+  var v = box.querySelector('video'), b = box.querySelector('.vid-play');
+  b.addEventListener('click', function () {
+    box.classList.add('playing');
+    v.controls = true;
+    v.play();
+  });
+})();
+</script>
+</body>
 </html>
