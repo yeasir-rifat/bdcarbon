@@ -1629,6 +1629,16 @@
       border-radius: var(--r-lg)
     }
 
+    .about-video video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      background: #0e2a1e
+    }
+
     .tiles {
       margin-top: 72px;
       gap: 20px
@@ -7196,8 +7206,14 @@
         <section class="section alt" id="about">
           <div class="wrap">
             <div class="about-grid">
-              <div class="about-ph reveal" role="img" aria-label="Climate and environment photograph"
+              <div class="about-ph about-video reveal"
                 style="--img:url(https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&amp;fit=crop&amp;w=1600&amp;q=70)">
+                <video controls playsinline preload="metadata"
+                  poster="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&amp;fit=crop&amp;w=1600&amp;q=70"
+                  aria-label="Our Word, We Will Save - Bangladesh Carbon Network video">
+                  <source src="videos/Our%20word_We%20will%20save.mp4" type="video/mp4">
+                  Your browser does not support the video tag.
+                </video>
               </div>
               <div class="reveal">
                 <h2>Carbon: Our Common Ground</h2>
