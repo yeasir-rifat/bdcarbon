@@ -6913,6 +6913,57 @@
         height: 28px
       }
     }
+  
+    /* ===== scroll curtain: Our Services slides up over the pinned hero ===== */
+    .curtain {
+      position: relative
+    }
+
+    .curtain>.hero {
+      position: sticky;
+      top: calc(var(--head-h) + env(safe-area-inset-top, 0px));
+      z-index: 0
+    }
+
+    .curtain>.hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: 4;
+      background: #04140d;
+      opacity: calc(var(--p, 0) * .62);
+      pointer-events: none
+    }
+
+    .curtain>.hero .slide-in {
+      transform: translate3d(0, calc(var(--p, 0) * -44px), 0);
+      will-change: transform
+    }
+
+    .curtain>#services {
+      position: relative;
+      z-index: 2;
+      background: #fff;
+      border-radius: 32px 32px 0 0;
+      box-shadow: 0 -20px 56px rgba(4, 20, 13, .3)
+    }
+
+    @media (max-width:640px) {
+      .curtain>#services {
+        border-radius: 24px 24px 0 0
+      }
+    }
+
+    @media (max-height:520px) {
+      .curtain>.hero {
+        position: relative;
+        top: auto
+      }
+
+      .curtain>.hero::after {
+        display: none
+      }
+    }
   </style>
   </head>
   <body class="home"><svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -7030,6 +7081,7 @@
     <main id="main">
       <div class="view" id="v-home">
         <h1 class="sr-only">Bangladesh Carbon Network</h1>
+        <div class="curtain">
         <section class="hero" id="home" aria-roledescription="carousel" aria-label="Featured">
           <article class="slide active"
             style="--img:url(images/Bangladesh%27s%20First%20Carbon%20Fest%20Starts%20Here.webp);--fb:linear-gradient(135deg,#123D2B,#1E6845)"
@@ -7140,6 +7192,7 @@
                 <p class="desc">We strengthen climate-smart agriculture, GAP and organic farming, from field planning to farmer training.</p><span class="svc-art" aria-hidden="true"><svg viewBox="0 0 300 120" preserveAspectRatio="xMaxYMax meet" focusable="false"><defs><linearGradient id="a8hb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--c);stop-opacity:.22"/><stop offset="1" style="stop-color:var(--c);stop-opacity:.06"/></linearGradient><linearGradient id="a8hf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" style="stop-color:var(--c);stop-opacity:.34"/><stop offset="1" style="stop-color:var(--c);stop-opacity:.14"/></linearGradient><filter id="a8bl" x="-30%" y="-60%" width="160%" height="220%"><feGaussianBlur stdDeviation="2.2"/></filter><filter id="a8bs" x="-30%" y="-60%" width="160%" height="220%"><feGaussianBlur stdDeviation=".9"/></filter><filter id="a8gr" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".85" numOctaves="2" seed="7" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.5 0 0 0 -.5" result="d"/><feComposite in="d" in2="SourceAlpha" operator="in" result="dn"/><feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="dn"/></feMerge></filter><filter id="a8rk" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".28" numOctaves="3" seed="4" result="n"/><feColorMatrix in="n" type="matrix" values="0 0 0 0 .1  0 0 0 0 .09  0 0 0 0 .08  1.7 0 0 0 -.55" result="d"/><feComposite in="d" in2="SourceAlpha" operator="in" result="dn"/><feMerge><feMergeNode in="SourceGraphic"/><feMergeNode in="dn"/></feMerge></filter><radialGradient id="a8sun" cx="0.5" cy="0.5" r="0.5"><stop offset="0" stop-color="#fff6c2"/><stop offset="0.4" stop-color="#ffe27a"/><stop offset="1" stop-color="#ffe27a00"/></radialGradient><linearGradient id="a8h" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#6fc443"/><stop offset="1" stop-color="#2d8a2e"/></linearGradient><linearGradient id="a8hb" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#a7d79a"/><stop offset="1" stop-color="#6fb170"/></linearGradient><linearGradient id="a8rf" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#b9452f"/><stop offset="1" stop-color="#7d2a1d"/></linearGradient><linearGradient id="a8wl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6ecd8"/><stop offset="1" stop-color="#d9c8a6"/></linearGradient><radialGradient id="a8f" cx="0.32" cy="0.28" r="0.85"><stop offset="0" stop-color="#8bd668"/><stop offset="0.55" stop-color="#3f9d43"/><stop offset="1" stop-color="#1f6b2e"/></radialGradient><linearGradient id="a8sh" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".25"/><stop offset="1" stop-color="#000" stop-opacity=".22"/></linearGradient><clipPath id="a8hc"><path d="M150 120C168 98 208 80 250 77C278 75 294 82 300 90V120Z"/></clipPath></defs><path d="M0 120V82C40 64 90 72 140 78S240 84 300 68V120Z" fill="url(#a8hb)"/><path d="M0 120V98C60 86 130 100 190 96S270 94 300 88V120Z" fill="url(#a8hf)"/><circle cx="270" cy="38" r="26" fill="url(#a8sun)"/><circle cx="270" cy="38" r="7.500" fill="#fff3b0"/><path d="M150 98C180 80 230 70 300 76V120H150Z" fill="url(#a8hb)" opacity=".8"/><path d="M150 120C168 98 208 80 250 77C278 75 294 82 300 90V120Z" fill="url(#a8h)"/><g clip-path="url(#a8hc)"><path d="M243.8 76L116.5 122L123.5 122L247.0 76Z" fill="#9be05f" opacity=".85"/><path d="M244.1 76L131.5 122L138.5 122L247.29999999999998 76Z" fill="#3c9a33" opacity=".85"/><path d="M244.4 76L146.5 122L153.5 122L247.6 76Z" fill="#9be05f" opacity=".85"/><path d="M244.70000000000002 76L161.5 122L168.5 122L247.9 76Z" fill="#3c9a33" opacity=".85"/><path d="M245.0 76L176.5 122L183.5 122L248.2 76Z" fill="#9be05f" opacity=".85"/><path d="M245.3 76L191.5 122L198.5 122L248.5 76Z" fill="#3c9a33" opacity=".85"/><path d="M245.6 76L206.5 122L213.5 122L248.79999999999998 76Z" fill="#9be05f" opacity=".85"/><path d="M245.9 76L221.5 122L228.5 122L249.1 76Z" fill="#3c9a33" opacity=".85"/><path d="M246.20000000000002 76L236.5 122L243.5 122L249.4 76Z" fill="#9be05f" opacity=".85"/><path d="M246.5 76L251.5 122L258.5 122L249.7 76Z" fill="#3c9a33" opacity=".85"/><path d="M246.8 76L266.5 122L273.5 122L250.0 76Z" fill="#9be05f" opacity=".85"/><path d="M247.1 76L281.5 122L288.5 122L250.29999999999998 76Z" fill="#3c9a33" opacity=".85"/><path d="M247.4 76L296.5 122L303.5 122L250.6 76Z" fill="#9be05f" opacity=".85"/><path d="M247.70000000000002 76L311.5 122L318.5 122L250.9 76Z" fill="#3c9a33" opacity=".85"/><path d="M248.0 76L326.5 122L333.5 122L251.2 76Z" fill="#9be05f" opacity=".85"/><path d="M248.3 76L341.5 122L348.5 122L251.5 76Z" fill="#3c9a33" opacity=".85"/><path d="M248.6 76L356.5 122L363.5 122L251.79999999999998 76Z" fill="#9be05f" opacity=".85"/><path d="M248.9 76L371.5 122L378.5 122L252.1 76Z" fill="#3c9a33" opacity=".85"/><path d="M249.20000000000002 76L386.5 122L393.5 122L252.4 76Z" fill="#9be05f" opacity=".85"/><path d="M249.5 76L401.5 122L408.5 122L252.7 76Z" fill="#3c9a33" opacity=".85"/><path d="M140 86C190 72 250 76 300 80" stroke="#fff" stroke-width="1" fill="none" opacity="0.12"/><path d="M140 96C190 82 250 86 300 90" stroke="#fff" stroke-width="1" fill="none" opacity="0.14"/><path d="M140 108C190 94 250 98 300 102" stroke="#fff" stroke-width="1" fill="none" opacity="0.18"/><rect x="140" y="70" width="170" height="52" fill="url(#a8sh)"/></g><path d="M150 120C168 98 208 80 250 77C278 75 294 82 300 90V120Z" fill="none" stroke="#e8ffcf" stroke-width=".8" opacity=".5"/><ellipse cx="238" cy="78" rx="14" ry="2" fill="#000" opacity=".25" filter="url(#a8bs)"/><rect x="228" y="66" width="20" height="12" fill="url(#a8wl)"/><path d="M226 67L238 57L250 67Z" fill="url(#a8rf)"/><path d="M226 67L238 57L238 67Z" fill="#fff" opacity=".12"/><rect x="235" y="70" width="6" height="8" fill="#6d4a33"/><path d="M235 70l6 8M241 70l-6 8" stroke="#e8d7b6" stroke-width=".6"/><rect x="230" y="68.500" width="3.500" height="3" fill="#8fb4d6"/><rect x="250" y="62" width="6" height="16" rx="1" fill="#e9dfc9"/><path d="M249 62Q253 55 257 62Z" fill="#c9503a"/><rect x="214.2" y="74" width="1.600" height="5.4" fill="#5a3f2b"/><ellipse cx="216" cy="75" rx="6" ry="4.800000000000001" fill="#0d3a14" opacity=".3"/><circle cx="214.9" cy="74.8" r="3.3" fill="url(#a8f)"/><circle cx="215.4" cy="72.6" r="2.8" fill="url(#a8f)"/><circle cx="215.4" cy="73.5" r="3.4" fill="url(#a8f)"/><circle cx="216.2" cy="74" r="2.8" fill="url(#a8f)"/><circle cx="214.6" cy="74.1" r="3.5" fill="url(#a8f)"/><circle cx="215" cy="73" r="2.9" fill="url(#a8f)"/><rect x="267.2" y="80" width="1.600" height="6.75" fill="#5a3f2b"/><ellipse cx="269" cy="81" rx="7.5" ry="6.0" fill="#0d3a14" opacity=".3"/><circle cx="270.2" cy="81.3" r="4.4" fill="url(#a8f)"/><circle cx="269.2" cy="76.4" r="4.3" fill="url(#a8f)"/><circle cx="271.1" cy="78.2" r="3.5" fill="url(#a8f)"/><circle cx="269.2" cy="77.7" r="4.3" fill="url(#a8f)"/><circle cx="266.4" cy="78.4" r="3.7" fill="url(#a8f)"/><circle cx="266.8" cy="79.4" r="3.3" fill="url(#a8f)"/><rect x="284.2" y="86" width="1.600" height="4.95" fill="#5a3f2b"/><ellipse cx="286" cy="87" rx="5.5" ry="4.4" fill="#0d3a14" opacity=".3"/><circle cx="286" cy="83.2" r="3.4" fill="url(#a8f)"/><circle cx="284.4" cy="83.8" r="3.1" fill="url(#a8f)"/><circle cx="286.4" cy="86.2" r="2.8" fill="url(#a8f)"/><circle cx="285.3" cy="85.4" r="2.9" fill="url(#a8f)"/><circle cx="285" cy="86.1" r="3" fill="url(#a8f)"/><circle cx="284.7" cy="85.2" r="2.8" fill="url(#a8f)"/></svg></span></a></div>
           </div>
         </section>
+        </div>
 
         <section class="section alt" id="about">
           <div class="wrap">
@@ -10583,6 +10636,27 @@
       else mq.addListener(sync);
     })();
 
+    
+    (function() {
+      var hero = document.querySelector('.curtain>.hero');
+      if (!hero || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+      var raf = 0;
+
+      function upd() {
+        raf = 0;
+        var h = hero.offsetHeight;
+        if (!h) return;
+        var p = Math.min(1, Math.max(0, window.scrollY / h));
+        hero.style.setProperty('--p', p.toFixed(3));
+      }
+      window.addEventListener('scroll', function() {
+        if (!raf) raf = requestAnimationFrame(upd);
+      }, {
+        passive: true
+      });
+      window.addEventListener('resize', upd);
+      upd();
+    })();
     </script>
   </body>
 </html>
