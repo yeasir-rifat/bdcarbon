@@ -7005,6 +7005,273 @@
         display: none
       }
     }
+
+    /* about: Carbon, Our Common Ground (modern layout, uncropped 16:9 video) */
+    .cg {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: clamp(32px, 5vw, 72px);
+      align-items: center
+    }
+
+    .cg-media {
+      position: relative;
+      margin: 0;
+      aspect-ratio: 16 / 9;
+      border-radius: var(--r-lg);
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(18, 61, 43, .1), rgba(18, 61, 43, .55)), var(--img) center / cover no-repeat, #0e2a1e;
+      box-shadow: var(--shadow-lg)
+    }
+
+    .cg-media video {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      background: #000
+    }
+
+    .cg-media .vid-play {
+      width: 72px;
+      height: 72px
+    }
+
+    .cg-cap {
+      position: absolute;
+      left: 20px;
+      bottom: 18px;
+      right: 20px;
+      color: #fff;
+      font: 600 var(--fs-ui)/1.3 var(--font-h);
+      letter-spacing: .01em;
+      text-shadow: 0 1px 12px rgba(0, 0, 0, .45);
+      pointer-events: none
+    }
+
+    .cg-media.playing .cg-cap {
+      display: none
+    }
+
+    .cg-kicker {
+      display: inline-block;
+      margin-bottom: 14px;
+      color: var(--green);
+      font: 700 var(--fs-eyebrow)/1 var(--font-b);
+      letter-spacing: .14em;
+      text-transform: uppercase
+    }
+
+    .cg-copy h2 {
+      margin: 0 0 20px;
+      font-size: var(--fs-h2);
+      line-height: 1.1;
+      letter-spacing: -.02em
+    }
+
+    .cg-copy h2 span {
+      color: var(--green)
+    }
+
+    .cg-lead {
+      font-size: clamp(1.05rem, 1.5vw, 1.2rem);
+      line-height: 1.6;
+      color: var(--text)
+    }
+
+    .cg-copy p {
+      margin: 0 0 16px
+    }
+
+    .cg-pillars {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin: 26px 0 22px;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border)
+    }
+
+    .cg-pillars div {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding: 18px 16px 18px 0
+    }
+
+    .cg-pillars div+div {
+      padding-left: 18px;
+      border-left: 1px solid var(--border)
+    }
+
+    .cg-pillars b {
+      color: var(--forest);
+      font: 700 1.05rem/1.2 var(--font-h)
+    }
+
+    .cg-pillars span {
+      color: var(--green);
+      font: 500 var(--fs-small)/1.3 var(--font-b)
+    }
+
+    .cg-note {
+      margin: 0;
+      padding-left: 16px;
+      border-left: 3px solid var(--lime);
+      color: var(--forest);
+      font-weight: 600
+    }
+
+    @media (max-width:900px) {
+      .cg {
+        grid-template-columns: 1fr
+      }
+    }
+
+    @media (max-width:520px) {
+      .cg-pillars {
+        grid-template-columns: 1fr
+      }
+
+      .cg-pillars div,
+      .cg-pillars div+div {
+        padding: 14px 0;
+        border-left: 0
+      }
+
+      .cg-pillars div+div {
+        border-top: 1px solid var(--border)
+      }
+    }
+
+    /* ===== About: pixel-aligned layout + modern cards ===== */
+    #about .cg {
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 64px;
+      align-items: center;
+      max-width: 1040px;
+      margin: 0 auto
+    }
+
+    #about .cg-copy h2 {
+      margin: 0 0 18px;
+      line-height: 1.12
+    }
+
+    #about .cg-lead {
+      margin: 0;
+      font-size: 1.0625rem;
+      line-height: 1.65;
+      max-width: 46ch
+    }
+
+    #about .tiles {
+      max-width: 1040px;
+      margin: 64px auto 0;
+      gap: 20px;
+      align-items: stretch
+    }
+
+    #about .tile {
+      --c: #1E6845;
+      --rgb: 30, 104, 69;
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-template-rows: auto 1fr;
+      column-gap: 14px;
+      row-gap: 14px;
+      align-items: center;
+      padding: 26px 24px;
+      background: #fff;
+      border: 1px solid rgba(24, 37, 30, .09);
+      border-radius: 20px;
+      box-shadow: 0 1px 2px rgba(18, 61, 43, .04), 0 8px 24px -14px rgba(18, 61, 43, .14);
+      cursor: default;
+      transition: transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s var(--ease)
+    }
+
+    #about .tiles .tile:nth-child(2) { --c: #2557C7; --rgb: 37, 87, 199 }
+    #about .tiles .tile:nth-child(3) { --c: #C75A12; --rgb: 199, 90, 18 }
+    #about .tiles .tile:nth-child(4) { --c: #6D3FD1; --rgb: 109, 63, 209 }
+
+    #about .tile:hover {
+      transform: translateY(-5px);
+      border-color: var(--c);
+      box-shadow: 0 16px 36px -12px rgba(var(--rgb), .42)
+    }
+
+    #about .tile-ic {
+      grid-column: 1;
+      grid-row: 1;
+      display: block;
+      width: auto;
+      height: auto;
+      margin: 0;
+      padding: 0;
+      background: none;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      color: var(--text)
+    }
+
+    #about .tile-ic .ic {
+      display: block;
+      width: 28px;
+      height: 28px;
+      stroke: var(--text);
+      stroke-width: 1.7;
+      filter: none;
+      transition: stroke .3s
+    }
+
+    #about .tile:hover .tile-ic .ic {
+      stroke: var(--c)
+    }
+
+    #about .tile h3 {
+      grid-column: 2;
+      grid-row: 1;
+      margin: 0;
+      font: 700 1.25rem/1.25 var(--font-h);
+      letter-spacing: -.01em;
+      color: var(--text);
+      transition: color .3s
+    }
+
+    #about .tile p {
+      grid-column: 1 / -1;
+      grid-row: 2;
+      align-self: start;
+      margin: 0;
+      font-size: .95rem;
+      line-height: 1.6;
+      color: #5A6A61;
+      transition: color .3s
+    }
+
+    #about .tile:hover h3,
+    #about .tile:hover p {
+      color: var(--c)
+    }
+
+    @media (max-width:900px) {
+      #about .cg {
+        grid-template-columns: 1fr;
+        gap: 36px
+      }
+
+      #about .tiles {
+        grid-template-columns: repeat(2, 1fr);
+        margin-top: 44px
+      }
+    }
+
+    @media (max-width:560px) {
+      #about .tiles {
+        grid-template-columns: 1fr
+      }
+    }
   </style>
   </head>
   <body class="home"><svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -7236,34 +7503,25 @@
 
         <section class="section alt" id="about">
           <div class="wrap">
-            <div class="about-grid">
-              <div class="about-ph about-video reveal"
+            <div class="cg">
+              <figure class="cg-media about-video reveal"
                 style="--img:url(https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&amp;fit=crop&amp;w=1600&amp;q=70)">
                 <video playsinline preload="metadata"
                   aria-label="Our Word, We Will Save - Bangladesh Carbon Network video">
+                  <source src="videos/Our_word_We_will_save.mp4" type="video/mp4">
                   <source src="videos/Our%20word_We%20will%20save.mp4" type="video/mp4">
                   Your browser does not support the video tag.
                 </video>
                 <button type="button" class="vid-play" aria-label="Play video">
-                  <svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
+                  <svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><path d="M8 5v14l11-7z" fill="currentColor"/></svg>
                 </button>
-              </div>
-              <div class="reveal">
-                <h2>Carbon: Our Common Ground</h2>
-                <p>Carbon sits at the centre of the climate story: from global warming and greenhouse gas
+                <figcaption class="cg-cap">Our Word, We Will Save</figcaption>
+              </figure>
+              <div class="cg-copy reveal">
+                <h2>Carbon: <span>Our Common Ground</span></h2>
+                <p class="cg-lead">Carbon sits at the centre of the climate story: from global warming and greenhouse gas
                   emissions to fossil-fuel dependence and a just transition. It is also a growing opportunity
-                  through carbon markets, crediting and green business. The Bangladesh Carbon Network Platform
-                  is a nationally rooted, globally connected hub that brings together education, research,
-                  innovation, project development and consultancy, so youth, researchers and educators can
-                  lead in carbon literacy, climate resilience and market participation.</p>
-                <p>We support Bangladesh's net-zero ambitions and align our work with:</p>
-                <ul class="chips" aria-label="Frameworks we align with">
-                  <li>NDC 3.0</li>
-                  <li>Article 6 mechanisms</li>
-                  <li>National Adaptation Plan (NAP)</li>
-                  <li>Biennial Update / Transparency reporting</li>
-                  <li>Bangladesh Carbon Framework</li>
-                </ul>
+                  through carbon markets, crediting and green business.</p>
               </div>
             </div>
             <div class="tiles">
