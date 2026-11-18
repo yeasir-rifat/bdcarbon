@@ -6789,7 +6789,87 @@
       #services .svc-grid:not(.three)>.svc-card:nth-child(n) .svc-icon { width: 52px; height: 52px }
       #services .svc-grid:not(.three)>.svc-card:nth-child(n) .svc-icon .ic { width: 31px; height: 31px }
     }
-    </style>
+    
+    /* ===== home hero: premium typography (no buttons) ===== */
+    .hero {
+      counter-reset: hs
+    }
+
+    .hero .slide {
+      counter-increment: hs;
+      background: linear-gradient(90deg, rgba(7, 26, 18, .92) 0%, rgba(7, 26, 18, .66) 42%, rgba(7, 26, 18, .16) 100%),
+                  linear-gradient(0deg, rgba(7, 26, 18, .6) 0%, transparent 38%),
+                  var(--img), var(--fb);
+      background-size: cover;
+      background-position: center
+    }
+
+    .hero .slide-in::before {
+      content: counter(hs, decimal-leading-zero);
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      margin-bottom: 26px;
+      font: 700 .82rem/1 var(--font-b);
+      letter-spacing: .26em;
+      color: var(--lime)
+    }
+
+    .hero .slide-in::after {
+      content: none
+    }
+
+    .hero .slide-in::before {
+      background: none
+    }
+
+    .hero .slide .slide-title {
+      position: relative;
+      max-width: 13.5em;
+      margin: 0 0 .5em;
+      padding-top: 26px;
+      font-size: clamp(2.35rem, 5.4vw, 4.5rem);
+      font-weight: 800;
+      line-height: 1.05;
+      letter-spacing: -.03em;
+      color: #fff;
+      text-shadow: 0 2px 28px rgba(0, 0, 0, .35)
+    }
+
+    .hero .slide .slide-title::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 64px;
+      height: 4px;
+      border-radius: 4px;
+      background: linear-gradient(90deg, var(--lime), rgba(168, 214, 109, .25))
+    }
+
+    .hero .slide .lead {
+      max-width: 33em;
+      margin: 0;
+      font-size: clamp(1.05rem, 1.55vw, 1.35rem);
+      font-weight: 400;
+      line-height: 1.65;
+      letter-spacing: .005em;
+      color: rgba(255, 255, 255, .88);
+      text-shadow: 0 1px 18px rgba(0, 0, 0, .4)
+    }
+
+    @media (max-width:640px) {
+      .hero .slide .slide-title {
+        padding-top: 20px;
+        font-size: clamp(1.9rem, 8.2vw, 2.5rem);
+        letter-spacing: -.02em
+      }
+
+      .hero .slide-in::before {
+        margin-bottom: 18px
+      }
+    }
+  </style>
   </head>
   <body class="home"><svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
       <defs>
@@ -6908,31 +6988,31 @@
         <h1 class="sr-only">Bangladesh Carbon Network</h1>
         <section class="hero" id="home" aria-roledescription="carousel" aria-label="Featured">
           <article class="slide active"
-            style="--img:url(images/Bangladesh%27s%20First%20Carbon%20Fest%20Starts%20Here.JPG);--fb:linear-gradient(135deg,#123D2B,#1E6845)"
+            style="--img:url(images/Bangladesh%27s%20First%20Carbon%20Fest%20Starts%20Here.webp);--fb:linear-gradient(135deg,#123D2B,#1E6845)"
             aria-roledescription="slide" aria-label="Slide 1 of 9">
             <div class="wrap slide-in">
               <p class="slide-title">Bangladesh's First Carbon Fest Starts Here</p>
-              <p class="lead">Where students, farmers and scientists came together to farm clean and trade green.</p><a class="btn btn-lime" href="#carbon-fest">Join the Fest<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg></a>
+              <p class="lead">Where students, farmers and scientists came together to farm clean and trade green.</p>
             </div>
           </article>
           <article class="slide"
-            style="--img:url(images/Measuring%20Rice%20Emissions%2C%20Field%20by%20Field.JPG);--fb:linear-gradient(135deg,#123D2B,#1E6845)"
+            style="--img:url(images/Measuring%20Rice%20Emissions%2C%20Field%20by%20Field.webp);--fb:linear-gradient(135deg,#123D2B,#1E6845)"
             aria-roledescription="slide" aria-label="Slide 2 of 9">
             <div class="wrap slide-in">
               <p class="slide-title">Measuring Rice Emissions, Field by Field</p>
-              <p class="lead">Monitoring rice-based emissions with the LI-COR Soil Flux Pro system: real data from real paddies.</p><a class="btn btn-lime" href="#/awd-rice-projects">See AWD Rice Projects<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg></a>
+              <p class="lead">Monitoring rice-based emissions with the LI-COR Soil Flux Pro system: real data from real paddies.</p>
             </div>
           </article>
           <article class="slide"
-            style="--img:url(images/Carbon%20Literacy%20Begins%20in%20the%20Classroom.JPG);--fb:linear-gradient(135deg,#123D2B,#1E6845)"
+            style="--img:url(images/Carbon%20Literacy%20Begins%20in%20the%20Classroom.webp);--fb:linear-gradient(135deg,#123D2B,#1E6845)"
             aria-roledescription="slide" aria-label="Slide 3 of 9">
             <div class="wrap slide-in">
               <p class="slide-title">Carbon Literacy Begins in the Classroom</p>
-              <p class="lead">Curious young minds are learning how carbon, climate and their future connect.</p><a class="btn btn-lime" href="#/resources">Explore Resources<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg></a>
+              <p class="lead">Curious young minds are learning how carbon, climate and their future connect.</p>
             </div>
           </article>
           <article class="slide"
-            style="--img:url(images/We%20Launched%20BANZE%20A%20Net%20Zero%20Alliance%20for%20Bangladesh.JPG);--fb:linear-gradient(135deg,#123D2B,#1E6845)"
+            style="--img:url(images/We%20Launched%20BANZE%20A%20Net%20Zero%20Alliance%20for%20Bangladesh.webp);--fb:linear-gradient(135deg,#123D2B,#1E6845)"
             aria-roledescription="slide" aria-label="Slide 4 of 9">
             <div class="wrap slide-in">
               <p class="slide-title">We Launched BANZE: A Net-Zero Alliance for Bangladesh</p>
@@ -6940,7 +7020,7 @@
             </div>
           </article>
           <article class="slide"
-            style="--img:url(images/A%20Global%20Network%20for%20a%20Shared%20Climate%20Goal.jpg);--fb:linear-gradient(135deg,#123D2B,#1E6845)"
+            style="--img:url(images/A%20Global%20Network%20for%20a%20Shared%20Climate%20Goal.webp);--fb:linear-gradient(135deg,#123D2B,#1E6845)"
             aria-roledescription="slide" aria-label="Slide 5 of 9">
             <div class="wrap slide-in">
               <p class="slide-title">A Global Network for a Shared Climate Goal</p>
@@ -6948,7 +7028,7 @@
             </div>
           </article>
           <article class="slide"
-            style="--img:url(images/One%20Climate%20Community%2C%20Many%20Voices.JPG);--fb:linear-gradient(135deg,#123D2B,#1E6845)"
+            style="--img:url(images/One%20Climate%20Community%2C%20Many%20Voices.webp);--fb:linear-gradient(135deg,#123D2B,#1E6845)"
             aria-roledescription="slide" aria-label="Slide 6 of 9">
             <div class="wrap slide-in">
               <p class="slide-title">One Climate Community, Many Voices</p>
@@ -6956,27 +7036,27 @@
             </div>
           </article>
           <article class="slide"
-            style="--img:url(images/Climate%20Olympiad%20Nurturing%20the%20Future.JPG);--fb:linear-gradient(135deg,#123D2B,#1E6845)"
+            style="--img:url(images/Climate%20Olympiad%20Nurturing%20the%20Future.webp);--fb:linear-gradient(135deg,#123D2B,#1E6845)"
             aria-roledescription="slide" aria-label="Slide 7 of 9">
             <div class="wrap slide-in">
               <p class="slide-title">Climate Olympiad: Nurturing the Future</p>
-              <p class="lead">Young learners are planting the seeds of tomorrow's climate leadership.</p><a class="btn btn-lime" href="#carbon-fest">Join the Fest<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg></a>
+              <p class="lead">Young learners are planting the seeds of tomorrow's climate leadership.</p>
             </div>
           </article>
           <article class="slide"
-            style="--img:url(images/From%20Classrooms%20to%20Climate%20Champions.JPG);--fb:linear-gradient(135deg,#123D2B,#1E6845)"
+            style="--img:url(images/From%20Classrooms%20to%20Climate%20Champions.webp);--fb:linear-gradient(135deg,#123D2B,#1E6845)"
             aria-roledescription="slide" aria-label="Slide 8 of 9">
             <div class="wrap slide-in">
               <p class="slide-title">From Classrooms to Climate Champions</p>
-              <p class="lead">Our Climate Olympiad rounds bring healthy competition, and climate knowledge, to schools across the country.</p><a class="btn btn-lime" href="#carbon-fest">Join the Fest<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg></a>
+              <p class="lead">Our Climate Olympiad rounds bring healthy competition, and climate knowledge, to schools across the country.</p>
             </div>
           </article>
           <article class="slide"
-            style="--img:url(images/Precise%20Data%20Monitoring%20Support.jpeg);--fb:linear-gradient(135deg,#123D2B,#1E6845)"
+            style="--img:url(images/Precise%20Data%20Monitoring%20Support.webp);--fb:linear-gradient(135deg,#123D2B,#1E6845)"
             aria-roledescription="slide" aria-label="Slide 9 of 9">
             <div class="wrap slide-in">
               <p class="slide-title">Precise Data Monitoring Support</p>
-              <p class="lead">Accurate field data that keeps your carbon project transparent, trusted and verification-ready.</p><a class="btn btn-lime" href="#/dmrv-support">Explore dMRV Support<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7" /></svg></a>
+              <p class="lead">Accurate field data that keeps your carbon project transparent, trusted and verification-ready.</p>
             </div>
           </article>
           <div class="dots"><button class="dot active" aria-label="Go to slide 1"></button><button class="dot" aria-label="Go to slide 2"></button><button class="dot" aria-label="Go to slide 3"></button><button class="dot" aria-label="Go to slide 4"></button><button class="dot" aria-label="Go to slide 5"></button><button class="dot" aria-label="Go to slide 6"></button><button class="dot" aria-label="Go to slide 7"></button><button class="dot" aria-label="Go to slide 8"></button><button class="dot" aria-label="Go to slide 9"></button></div>
