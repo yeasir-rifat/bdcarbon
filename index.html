@@ -37,7 +37,7 @@
       --r-btn: var(--r-xs);
       --shadow: 0 1px 2px rgba(18, 61, 43, .04), 0 10px 30px rgba(18, 61, 43, .06);
       --shadow-lg: 0 22px 50px rgba(18, 61, 43, .16);
-      --sec: clamp(56px, 8vw, 104px);
+      --sec: 80px;
       --head-h: 76px;
       --font-h: 'Noto Sans', 'Noto Sans Bengali', sans-serif;
       --font-b: 'Inter', 'Noto Sans Bengali', system-ui, sans-serif;
@@ -7718,6 +7718,512 @@
         display: none
       }
     }
+
+    /* ===== About: Carbon, Our Common Goal (organised layout) ===== */
+    #about .cg {
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+      gap: clamp(32px, 5vw, 72px);
+      align-items: center
+    }
+
+    #about .cg-media {
+      border-radius: var(--r-lg);
+      box-shadow: 0 24px 56px -20px rgba(18, 61, 43, .35)
+    }
+
+    #about .ab-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 18px;
+      padding: 7px 14px;
+      border-radius: var(--r-pill);
+      background: #fff;
+      border: 1px solid var(--border);
+      color: var(--green);
+      font: 700 var(--fs-label)/1 var(--font-b);
+      letter-spacing: .14em;
+      text-transform: uppercase
+    }
+
+    #about .ab-eyebrow::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--lime);
+      box-shadow: 0 0 0 3px rgba(168, 214, 109, .35)
+    }
+
+    #about .cg-copy {
+      align-items: flex-start
+    }
+
+    #about .cg-copy h2 {
+      margin: 0 0 16px;
+      font-size: clamp(2rem, 3.6vw, 3rem);
+      line-height: 1.1
+    }
+
+    #about .cg-lead {
+      margin: 0 0 28px;
+      max-width: 34em;
+      font-size: clamp(1.02rem, 1.3vw, 1.15rem);
+      line-height: 1.65;
+      color: #43544a
+    }
+
+    #about .ab-points {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      display: grid;
+      gap: 14px
+    }
+
+    #about .ab-points li {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      padding: 20px 22px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-left: 4px solid var(--lime);
+      border-radius: var(--r-md);
+      box-shadow: var(--shadow)
+    }
+
+    #about .ab-pt-ic {
+      flex: none;
+      display: grid;
+      place-items: center;
+      width: 46px;
+      height: 46px;
+      border-radius: 14px;
+      background: var(--pale);
+      border: 1px solid var(--border);
+      color: var(--green)
+    }
+
+    #about .ab-pt-ic .ic {
+      width: 24px;
+      height: 24px
+    }
+
+    #about .ab-points b {
+      display: block;
+      margin-bottom: 4px;
+      font: 700 1.05rem/1.25 var(--font-h);
+      color: var(--forest)
+    }
+
+    #about .ab-points p {
+      margin: 0;
+      font-size: .98rem;
+      line-height: 1.6;
+      color: #4d5f55
+    }
+
+    #about .ab-sub {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      margin: clamp(56px, 7vw, 88px) 0 clamp(24px, 3vw, 36px)
+    }
+
+    #about .ab-sub .ab-eyebrow {
+      margin-bottom: 14px
+    }
+
+    #about .ab-sub h3 {
+      margin: 0;
+      font: 800 clamp(1.4rem, 2.4vw, 2rem)/1.2 var(--font-h);
+      letter-spacing: -.01em;
+      color: var(--text)
+    }
+
+    #about .tiles.ab-grid {
+      margin: 0;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 20px;
+      align-items: stretch
+    }
+
+    #about .ab-grid .tile {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      padding: 28px 26px 30px;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      box-shadow: var(--shadow)
+    }
+
+    #about .ab-grid .tile .ab-num {
+      position: absolute;
+      top: 26px;
+      right: 24px;
+      font: 800 .75rem/1 var(--font-b);
+      letter-spacing: .16em;
+      color: #9aab9f;
+      transition: color .3s
+    }
+
+    #about .ab-grid .tile:hover .ab-num {
+      color: var(--c)
+    }
+
+    #about .ab-grid .tile .tile-ic {
+      display: grid;
+      place-items: center;
+      width: 56px;
+      height: 56px;
+      margin: 0 0 22px;
+      border-radius: 16px;
+      background: var(--pale);
+      border: 1px solid var(--border);
+      transition: background .3s, border-color .3s
+    }
+
+    #about .ab-grid .tile .tile-ic .ic {
+      width: 28px;
+      height: 28px;
+      stroke: var(--green)
+    }
+
+    #about .ab-grid .tile:hover .tile-ic {
+      background: #fff;
+      border-color: var(--c)
+    }
+
+    #about .ab-grid .tile:hover .tile-ic .ic {
+      stroke: var(--c)
+    }
+
+    #about .ab-grid .tile h3 {
+      margin: 0 0 10px;
+      font: 700 1.25rem/1.25 var(--font-h)
+    }
+
+    #about .ab-grid .tile p,
+    #about .ab-grid .tile:hover p {
+      margin: 0;
+      font-size: .98rem;
+      line-height: 1.6;
+      color: #5A6A61
+    }
+
+    @media (max-width: 1100px) {
+      #about .tiles.ab-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr))
+      }
+    }
+
+    @media (max-width: 900px) {
+      #about .cg {
+        grid-template-columns: 1fr;
+        gap: 32px
+      }
+    }
+
+    @media (max-width: 560px) {
+      #about .tiles.ab-grid {
+        grid-template-columns: 1fr
+      }
+
+      #about .ab-points li {
+        padding: 18px
+      }
+    }
+
+    /* ===== Fix pass: clean line icons on service cards ===== */
+    #services .svc-grid .svc-card .duo .f,
+    #services .svc-grid .svc-card:hover .duo .f,
+    #services .svc-grid .svc-card .duo .g,
+    #services .svc-grid .svc-card:hover .duo .g {
+      fill: #fff !important;
+      fill-opacity: .16 !important
+    }
+
+    #services .svc-grid .svc-card .svc-icon .ic.duo,
+    #services .svc-grid .svc-card:hover .svc-icon .ic.duo,
+    #services .svc-grid .svc-card:focus-visible .svc-icon .ic.duo {
+      width: 76px !important;
+      height: 76px !important;
+      stroke-width: 1.7 !important
+    }
+
+    #services .svc-grid:not(.three)>.svc-card:nth-child(n) .svc-top {
+      margin: 0 0 22px
+    }
+
+    #services .svc-grid:not(.three)>.svc-card:nth-child(n) h3 {
+      font-size: clamp(1.2rem, 1.5vw, 1.4rem)
+    }
+
+    /* ===== Fix pass: About section, one organised panel ===== */
+    #about .cg {
+      padding: clamp(14px, 1.6vw, 22px);
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: var(--shadow-lg);
+      gap: clamp(24px, 4vw, 56px)
+    }
+
+    #about .cg-media {
+      border-radius: 20px;
+      box-shadow: none
+    }
+
+    #about .cg-copy {
+      padding: clamp(8px, 1.5vw, 20px) clamp(8px, 2vw, 28px) clamp(8px, 1.5vw, 20px) 0
+    }
+
+    #about .ab-points {
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      padding-top: 24px;
+      border-top: 1px solid var(--border)
+    }
+
+    #about .ab-points li {
+      flex-direction: column;
+      gap: 12px;
+      padding: 0;
+      background: none;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none
+    }
+
+    #about .tiles.ab-grid {
+      gap: 0;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      box-shadow: var(--shadow);
+      overflow: hidden
+    }
+
+    #about .ab-grid .tile {
+      padding: 34px 30px 36px;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none;
+      transition: background .3s
+    }
+
+    #about .ab-grid .tile+.tile {
+      border-left: 1px solid var(--border)
+    }
+
+    #about .ab-grid .tile:hover {
+      transform: none;
+      background: #F7FAF3;
+      box-shadow: none
+    }
+
+    @media (max-width: 1100px) {
+      #about .ab-grid .tile+.tile {
+        border-left: 0
+      }
+
+      #about .ab-grid .tile:nth-child(even) {
+        border-left: 1px solid var(--border)
+      }
+
+      #about .ab-grid .tile:nth-child(n+3) {
+        border-top: 1px solid var(--border)
+      }
+    }
+
+    @media (max-width: 900px) {
+      #about .cg-copy {
+        padding: 8px 8px 12px
+      }
+    }
+
+    @media (max-width: 560px) {
+      #about .ab-points {
+        grid-template-columns: 1fr
+      }
+
+      #about .ab-grid .tile:nth-child(n) {
+        border-left: 0
+      }
+
+      #about .ab-grid .tile+.tile {
+        border-top: 1px solid var(--border)
+      }
+    }
+
+    #about .cg { align-items: stretch }
+    #about .cg-media { aspect-ratio: auto; height: 100%; min-height: 360px }
+    #about .cg-copy { justify-content: center }
+    @media (max-width: 900px) { #about .cg-media { aspect-ratio: 16 / 9; height: auto; min-height: 0 } }
+
+    /* ===== Fix pass 2: truly centred icon+title, lift on hover; smaller arrow-less badge ===== */
+    #services .svc-grid:not(.three)>.svc-card:nth-child(n) {
+      padding: 26px 24px
+    }
+
+    #services .svc-grid:not(.three)>.svc-card:nth-child(n) .svc-top,
+    #services .svc-grid:not(.three)>.svc-card:nth-child(n) h3 {
+      transition: transform .45s var(--ease)
+    }
+
+    #services .svc-grid:not(.three)>.svc-card:nth-child(n):hover .svc-top,
+    #services .svc-grid:not(.three)>.svc-card:nth-child(n):focus-visible .svc-top,
+    #services .svc-grid:not(.three)>.svc-card:nth-child(n):hover h3,
+    #services .svc-grid:not(.three)>.svc-card:nth-child(n):focus-visible h3 {
+      transform: translateY(-76px)
+    }
+
+    @media (hover: none) {
+      #services .svc-grid:not(.three)>.svc-card:nth-child(n) .svc-top,
+      #services .svc-grid:not(.three)>.svc-card:nth-child(n) h3 {
+        transform: translateY(-76px)
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      #services .svc-grid:not(.three)>.svc-card:nth-child(n) .svc-top,
+      #services .svc-grid:not(.three)>.svc-card:nth-child(n) h3 {
+        transition: none
+      }
+    }
+
+    .svc-cursor {
+      gap: 0;
+      padding: 9px 16px;
+      font-size: 12px;
+      letter-spacing: .03em
+    }
+
+    /* ===== Fix pass 3: About paragraph larger; work cards inline icon + title, no icon background ===== */
+    #about .cg-copy h2 {
+      margin: 0 0 22px
+    }
+
+    #about .cg-lead {
+      max-width: none;
+      margin: 0;
+      font-size: clamp(1.2rem, 1.9vw, 1.65rem);
+      line-height: 1.6;
+      font-weight: 500;
+      color: var(--text);
+      text-wrap: pretty
+    }
+
+    #about .tiles.ab-grid {
+      margin-top: clamp(28px, 4vw, 44px)
+    }
+
+    #about .ab-grid .tile {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      grid-template-rows: auto 1fr;
+      column-gap: 14px;
+      row-gap: 16px;
+      align-items: center
+    }
+
+    #about .ab-grid .tile .tile-ic {
+      grid-column: 1;
+      grid-row: 1;
+      width: auto;
+      height: auto;
+      margin: 0;
+      background: none;
+      border: 0;
+      border-radius: 0
+    }
+
+    #about .ab-grid .tile:hover .tile-ic {
+      background: none;
+      border: 0
+    }
+
+    #about .ab-grid .tile h3 {
+      grid-column: 2;
+      grid-row: 1;
+      margin: 0
+    }
+
+    #about .ab-grid .tile p,
+    #about .ab-grid .tile:hover p {
+      grid-column: 1 / -1;
+      grid-row: 2;
+      align-self: start
+    }
+
+    /* ===== Fix pass 4: one merged panel, normal-size longer paragraph ===== */
+    #about .ab-panel {
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      box-shadow: var(--shadow-lg)
+    }
+
+    #about .cg {
+      background: none;
+      border: 0;
+      border-radius: 0;
+      box-shadow: none
+    }
+
+    #about .cg-lead {
+      font-size: clamp(1rem, 1.25vw, 1.1rem);
+      line-height: 1.75;
+      font-weight: 400;
+      color: #43544a
+    }
+
+    #about .cg-copy h2 {
+      margin: 0 0 18px
+    }
+
+    #about .tiles.ab-grid {
+      margin: 0;
+      background: none;
+      border: 0;
+      border-top: 1px solid var(--border);
+      border-radius: 0;
+      box-shadow: none
+    }
+  
+    /* ===== About cards: black icon + title; icon, title and text recolour together on hover ===== */
+    #about .ab-grid .tile .tile-ic .ic { stroke: #000 }
+    #about .ab-grid .tile h3 { color: #000 }
+    #about .ab-grid .tile .tile-ic .ic,
+    #about .ab-grid .tile h3,
+    #about .ab-grid .tile p { transition: stroke .3s, color .3s }
+    #about .ab-grid .tile:hover .tile-ic .ic { stroke: var(--c) }
+    #about .ab-grid .tile:hover h3,
+    #about .ab-grid .tile:hover p { color: var(--c) }
+    #about .ab-grid .tile p { min-height: 3.2em; text-wrap: balance }
+  
+    /* About lead paragraph: justified, flush on both left and right edges */
+    #about .cg-lead { text-align: justify; text-align-last: left; text-justify: inter-word; hyphens: auto; -webkit-hyphens: auto; text-wrap: wrap }
+  
+    /* About video: no thumbnail image, plain dark background until it plays */
+    .cg-media { background: #0e2a1e }
+  
+    /* Services: keep the curtain shadow on top only, so it does not bleed onto the About section below */
+    .curtain>#services { clip-path: inset(-120px 0 0 0) }
+  
+    /* Carbon Fest: same section padding as every other section (no full-screen lock) */
+    @media (min-width:961px) {
+      #carbon-fest { display: block; min-height: 0; padding-block: var(--sec) }
+    }
   </style>
   </head>
   <body class="home"><svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -7957,9 +8463,9 @@
 
         <section class="section alt" id="about">
           <div class="wrap">
+            <div class="ab-panel">
             <div class="cg">
-              <figure class="cg-media about-video reveal"
-                style="--img:url(https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&amp;fit=crop&amp;w=1600&amp;q=70)">
+              <figure class="cg-media about-video reveal">
                 <video playsinline preload="metadata"
                   aria-label="Our Word, We Will Save - Bangladesh Carbon Network video">
                   <source src="videos/Our_word_We_will_save.mp4" type="video/mp4">
@@ -7972,13 +8478,11 @@
                 <figcaption class="cg-cap">Our Word, We Will Save</figcaption>
               </figure>
               <div class="cg-copy reveal">
-                <h2>Carbon: <span>Our Common Goal</span></h2>
-                <p class="cg-lead">Carbon sits at the centre of the climate story: from global warming and greenhouse gas
-                  emissions to fossil-fuel dependence and a just transition. It is also a growing opportunity
-                  through carbon markets, crediting and green business.</p>
+                <h2>Our World, <span>We Will Save</span></h2>
+                <p class="cg-lead">Our world is the only home we share, and its future depends on the choices we make today. Rising temperatures, extreme weather, sea-level rise and the loss of nature already affect lives and livelihoods across Bangladesh, from coastal communities to farmers in the field. We believe that saving our world begins with understanding carbon and turning that understanding into action. Bangladesh Carbon Network brings together students, farmers, researchers and businesses to build carbon literacy, generate evidence and develop credible carbon projects, so that every community can protect nature, grow sustainably and leave a greener, safer planet for the generations to come.</p>
               </div>
             </div>
-            <div class="tiles">
+            <div class="tiles ab-grid">
               <div class="tile reveal"><span class="tile-ic"><svg class="ic" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
                     aria-hidden="true">
@@ -7996,7 +8500,7 @@
                     </g>
                   </svg></span>
                 <h3>Learn</h3>
-                <p>Build carbon literacy and practical skills for youth and professionals.</p>
+                <p>Build carbon skills for youth and professionals.</p>
               </div>
               <div class="tile reveal"><span class="tile-ic"><svg class="ic" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
@@ -8011,7 +8515,7 @@
                     <circle class="bb" cx="11.4" cy="17" r=".5" />
                   </svg></span>
                 <h3>Research</h3>
-                <p>Generate evidence that guides climate policy and carbon market choices.</p>
+                <p>Generate evidence to guide carbon market policy.</p>
               </div>
               <div class="tile reveal"><span class="tile-ic"><svg class="ic" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
@@ -8021,7 +8525,7 @@
                     <path class="ly1" d="m12 3 9 4-9 4-9-4z" />
                   </svg></span>
                 <h3>Build</h3>
-                <p>Develop high-integrity carbon projects from first idea to verification.</p>
+                <p>Develop credible carbon projects, idea to audit.</p>
               </div>
               <div class="tile reveal"><span class="tile-ic"><svg class="ic" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
@@ -8033,8 +8537,9 @@
                     <path class="gl" pathLength="1" d="M3.1 16.5h17.8" />
                   </svg></span>
                 <h3>Connect</h3>
-                <p>Link local communities with national partners and global carbon buyers.</p>
+                <p>Link local communities with global carbon firms.</p>
               </div>
+            </div>
             </div>
           </div>
         </section>
@@ -11365,7 +11870,7 @@
   var b = document.createElement('div');
   b.className = 'svc-cursor';
   b.setAttribute('aria-hidden', 'true');
-  b.innerHTML = 'Learn More <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+  b.textContent = 'Learn More';
   document.body.appendChild(b);
   var x = 0, y = 0, sc = .6, raf = 0;
   function draw() {
