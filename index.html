@@ -7560,7 +7560,7 @@
       z-index: -1;
       border-radius: inherit;
       opacity: 1;
-      background: linear-gradient(180deg, rgba(8, 28, 18, .78) 0%, rgba(8, 28, 18, .35) 45%, rgba(8, 28, 18, .12) 100%), var(--bg) center / cover no-repeat, linear-gradient(135deg, #123D2B, #1E6845);
+      background: linear-gradient(180deg, rgba(8, 28, 18, .55) 0%, rgba(8, 28, 18, .45) 50%, rgba(8, 28, 18, .3) 100%), var(--bg) center / cover no-repeat, linear-gradient(135deg, #123D2B, #1E6845);
       transform: scale(1);
       transition: transform .7s var(--ease);
       pointer-events: none
@@ -7629,6 +7629,93 @@
       #services .svc-grid:not(.three)>.svc-card:nth-child(n)::before,
       #services .svc-grid:not(.three)>.svc-card:nth-child(n) .desc {
         transition: none
+      }
+    }
+
+    /* ===== Services cards v7: icon without background, icon + title centred ===== */
+    #services .svc-grid:not(.three)>.svc-card:nth-child(n) {
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 26px 24px 70px
+    }
+
+    #services .svc-grid:not(.three)>.svc-card:nth-child(n) .svc-top {
+      align-self: center;
+      justify-content: center;
+      margin: 0 0 16px
+    }
+
+    #services .svc-grid .svc-card .svc-icon,
+    #services .svc-grid .svc-card:hover .svc-icon,
+    #services .svc-grid .svc-card:focus-visible .svc-icon {
+      width: auto !important;
+      height: auto !important;
+      background: none !important;
+      border: 0 !important;
+      border-radius: 0 !important;
+      box-shadow: none !important;
+      color: #fff !important
+    }
+
+    #services .svc-grid .svc-card .svc-icon .ic.duo,
+    #services .svc-grid .svc-card:hover .svc-icon .ic.duo,
+    #services .svc-grid .svc-card:focus-visible .svc-icon .ic.duo {
+      width: 64px !important;
+      height: 64px !important;
+      stroke: #fff !important;
+      color: #fff !important;
+      filter: drop-shadow(0 3px 10px rgba(0, 0, 0, .45)) !important
+    }
+
+    #services .svc-grid:not(.three)>.svc-card:nth-child(n) h3,
+    #services .svc-grid:not(.three)>.svc-card:nth-child(n):hover h3,
+    #services .svc-grid:not(.three)>.svc-card:nth-child(n):focus-visible h3 {
+      justify-content: center;
+      text-align: center
+    }
+
+    /* ===== Services cards: "Learn More" cursor badge (mouse devices only) ===== */
+    .svc-cursor {
+      position: fixed;
+      left: 0;
+      top: 0;
+      z-index: 300;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 12px 20px;
+      border-radius: var(--r-pill);
+      background: var(--lime);
+      color: var(--forest);
+      font: 700 14px/1 var(--font-b);
+      letter-spacing: .02em;
+      white-space: nowrap;
+      box-shadow: 0 10px 28px rgba(0, 0, 0, .35);
+      pointer-events: none;
+      opacity: 0;
+      transform: translate3d(-200px, -200px, 0) scale(.6);
+      transition: opacity .2s ease
+    }
+
+    .svc-cursor .ic {
+      width: 16px;
+      height: 16px
+    }
+
+    .svc-cursor.on {
+      opacity: 1
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      #services .svc-grid:not(.three)>.svc-card {
+        cursor: none
+      }
+    }
+
+    @media (hover: none), (pointer: coarse) {
+      .svc-cursor {
+        display: none
       }
     }
   </style>
@@ -11269,6 +11356,40 @@
   if ('IntersectionObserver' in window) {
     new IntersectionObserver(function(es,o){ es.forEach(function(e){ if(e.isIntersecting){ start(); o.disconnect(); } }); },{threshold:.35}).observe(box);
   } else start();
+})();
+</script>
+<script>
+(function () {
+  var cards = [].slice.call(document.querySelectorAll('#services .svc-grid:not(.three) .svc-card'));
+  if (!cards.length || !matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+  var b = document.createElement('div');
+  b.className = 'svc-cursor';
+  b.setAttribute('aria-hidden', 'true');
+  b.innerHTML = 'Learn More <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>';
+  document.body.appendChild(b);
+  var x = 0, y = 0, sc = .6, raf = 0;
+  function draw() {
+    raf = 0;
+    b.style.transform = 'translate3d(' + x + 'px,' + y + 'px,0) translate(-50%,-50%) scale(' + sc + ')';
+  }
+  function move(e) {
+    x = e.clientX; y = e.clientY;
+    if (!raf) raf = requestAnimationFrame(draw);
+  }
+  cards.forEach(function (c) {
+    c.addEventListener('mouseenter', function (e) {
+      move(e); sc = 1; draw();
+      b.style.transition = 'opacity .2s ease';
+      b.classList.add('on');
+    });
+    c.addEventListener('mousemove', move);
+    c.addEventListener('mouseleave', function () {
+      sc = .6;
+      b.classList.remove('on');
+      draw();
+    });
+  });
+  addEventListener('scroll', function () { b.classList.remove('on'); }, { passive: true });
 })();
 </script>
 </body>
