@@ -8912,6 +8912,134 @@ body .section > .wrap > :last-child,body .cta-band > .wrap > :last-child{margin-
 @media (max-width:640px){#v-team .tm-card.lead{grid-template-columns:1fr}#v-team .tm-card.lead .tm-ph{min-height:0;aspect-ratio:4/3}}
 @media (max-width:420px){#v-team .tm-grid.four{grid-template-columns:1fr}}
 form .btn,form .btn:hover,form .btn:focus-visible{box-shadow:none !important}
+
+/* ===== Redesign v2: centered page heads, Resources tabs, News cards ===== */
+.pg-head{background:#fff;text-align:center;padding:clamp(40px,6vw,76px) 0 clamp(8px,1.5vw,20px)}
+.pg-head h1{margin:0 0 .35em;font-size:clamp(2.2rem,4.6vw,3.4rem);line-height:1.1;letter-spacing:-.025em;color:var(--forest)}
+.pg-head p{max-width:34em;margin:0 auto;font-size:clamp(1rem,1.3vw,1.15rem);line-height:1.65;color:#52635a}
+.pg-head + .section{padding-top:clamp(28px,4vw,48px)}
+
+/* Resources */
+.rs2{background:#fff}
+#v-resources .rs2-layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:clamp(24px,4vw,56px);align-items:start}
+.rs2-tabs{position:sticky;top:calc(var(--head-h) + 24px);display:flex;flex-direction:column;gap:4px;padding:10px;background:var(--mist);border:1px solid #dbe7cc;border-radius:var(--radius)}
+.rs2-tab{display:flex;align-items:center;gap:12px;width:100%;padding:13px 14px;border:0;border-radius:var(--radius);background:transparent;color:#3f5047;font:600 .98rem/1.2 var(--font-b);text-align:left;cursor:pointer}
+.rs2-tab .ic{flex:none;width:20px;height:20px;color:var(--green)}
+.rs2-tl{flex:1;min-width:0}
+.rs2-n{min-width:26px;padding:2px 8px;border-radius:99px;background:#fff;color:#52635a;font-size:.78rem;text-align:center}
+.rs2-tab:hover{background:#fff;color:var(--green)}
+.rs2-tab[aria-selected="true"]{background:var(--green);color:#fff}
+.rs2-tab[aria-selected="true"] .ic{color:var(--lime)}
+.rs2-tab[aria-selected="true"] .rs2-n{background:rgba(255,255,255,.2);color:#fff}
+.rs2-tab:focus-visible,.rs2-view:focus-visible,.rs2-ext:focus-visible,.rs2-play:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+.rs2-panel[hidden]{display:none}
+.rs2-panel:focus{outline:0}
+.rs2-grid{display:grid;gap:20px}
+.rs2-grid-vid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.rs2-grid-doc{grid-template-columns:repeat(2,minmax(0,1fr))}
+.rs2-vid{background:#fff;border:1px solid #dbe7cc;border-radius:var(--radius);overflow:hidden}
+.rs2-frame{position:relative;display:grid;place-items:center;aspect-ratio:16/9;background:#123D2B center/cover no-repeat}
+.rs2-frame iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.rs2-play{display:grid;place-items:center;width:64px;height:64px;padding:0;border:2px solid #fff;border-radius:50%;background:rgba(18,61,43,.55);color:#fff;cursor:pointer}
+.rs2-play .ic{width:26px;height:26px;margin-left:3px;fill:#fff}
+.rs2-play:disabled{display:none}
+.rs2-soon{display:none;color:rgba(255,255,255,.85);font-weight:600;letter-spacing:.04em}
+.rs2-vid.is-pending .rs2-soon{display:block}
+.rs2-vid-body{padding:16px 20px 20px}
+.rs2-vid h3{margin:0 0 4px;font-size:1.08rem;line-height:1.3;color:var(--forest)}
+.rs2-vid p{margin:0;font-size:.94rem;color:#52635a}
+.rs2-doc{display:flex;flex-direction:column;gap:14px;padding:clamp(20px,2.2vw,26px);background:#fff;border:1px solid #dbe7cc;border-radius:var(--radius)}
+.rs2-ic{width:32px;height:32px;color:var(--green)}
+.rs2-doc-body{flex:1}
+.rs2-type{display:inline-block;margin-bottom:8px;font:700 .72rem/1 var(--font-b);letter-spacing:.1em;text-transform:uppercase;color:var(--green)}
+.rs2-doc h3{margin:0 0 6px;font-size:1.1rem;line-height:1.3;color:var(--forest)}
+.rs2-doc p{margin:0;font-size:.94rem;color:#52635a}
+.rs2-acts{display:flex;flex-wrap:wrap;gap:10px}
+.rs2-view,.rs2-ext{display:inline-flex;align-items:center;justify-content:center;gap:8px;min-height:42px;padding:0 18px;border-radius:var(--radius);font:600 .92rem/1 var(--font-b);text-decoration:none;cursor:pointer;box-shadow:none;transition:background-color .2s,color .2s,border-color .2s}
+.rs2-view .ic,.rs2-ext .ic{width:18px;height:18px;flex:none}
+.rs2-view{border:1px solid var(--green);background:var(--green);color:#fff}
+.rs2-ext{border:1px solid #cfdfba;background:#fff;color:var(--green)}
+.rs2-view:disabled,.rs2-ext[aria-disabled="true"]{opacity:.55;cursor:not-allowed}
+.rs2-view:disabled .ic,.rs2-doc.is-pending .rs2-ext .ic{display:none}
+.rs2-doc.is-pending .rs2-ext{display:none}
+.rs2-dlg{width:min(980px,94vw);height:min(88vh,860px);padding:0;border:0;border-radius:var(--radius);overflow:hidden;background:#fff;color:var(--text)}
+.rs2-dlg[open]{display:flex;flex-direction:column}
+.rs2-dlg::backdrop{background:rgba(10,35,24,.65)}
+.rs2-dhead{display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid #dbe7cc}
+.rs2-dhead h2{flex:1;min-width:0;margin:0;font-size:1.05rem;color:var(--forest);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rs2-x{display:grid;place-items:center;width:42px;height:42px;padding:0;border:1px solid #cfdfba;border-radius:var(--radius);background:#fff;color:var(--forest);cursor:pointer}
+.rs2-x .ic{width:20px;height:20px}
+.rs2-dbody{position:relative;flex:1;min-height:0;background:#f4f7f0}
+.rs2-dbody iframe{width:100%;height:100%;border:0}
+.rs2-dbody iframe[hidden]{display:none}
+.rs2-dmsg{position:absolute;inset:0;display:grid;place-items:center;margin:0;color:#52635a}
+.rs2-dmsg[hidden]{display:none}
+@media (max-width:980px){
+  #v-resources .rs2-layout{grid-template-columns:1fr}
+  .rs2-tabs{position:static;flex-direction:row;overflow-x:auto;gap:6px;-webkit-overflow-scrolling:touch}
+  .rs2-tab{width:auto;flex:none;white-space:nowrap}
+}
+@media (max-width:640px){.rs2-grid-vid,.rs2-grid-doc{grid-template-columns:1fr}.rs2-dlg{width:100vw;height:100dvh;max-width:none;max-height:none;border-radius:0}}
+
+/* News */
+#v-news > .section.alt{background:#fff}
+#v-news #nb-all{border-top:0}
+#v-news .sec-head.split{justify-content:flex-start}
+#v-news .nb-grid{gap:28px}
+#v-news .nb-card{border:1px solid #dbe7cc;border-radius:16px;overflow:hidden;background:#fff}
+#v-news .nb-card .nb-vis{aspect-ratio:16/10;display:block;background:var(--g) var(--img) center/cover no-repeat}
+#v-news .nb-card .nb-vis::before{inset:0;background:linear-gradient(180deg,rgba(10,35,24,0) 45%,rgba(10,35,24,.45));background-size:auto}
+#v-news .nb-card .nb-ico{display:none}
+#v-news .nb-card .nb-cat{left:16px;top:16px;background:#fff;color:var(--forest);padding:6px 12px;font-size:.72rem}
+#v-news .nb-card .nb-body{padding:22px 24px 24px}
+#v-news .nb-card .nb-meta{margin-bottom:12px;font-size:.8125rem;font-weight:600;letter-spacing:.02em;color:#6a7c71}
+#v-news .nb-card .nb-t{margin:0 0 10px;font-size:1.2rem;line-height:1.35;color:var(--forest)}
+#v-news .nb-card .nb-body p{margin:0 0 20px;font-size:.95rem;line-height:1.6;color:#52635a;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;flex:1}
+#v-news .nb-card .nb-open{display:inline-flex;align-items:center;gap:8px;margin-top:auto;padding-top:16px;border-top:1px solid #e3ecd9;width:100%;color:var(--green);font-weight:700}
+#v-news .nb-card:hover{border-color:var(--green)}
+
+/* News popup */
+.nb-dlg{width:min(760px,calc(100% - 32px))}
+.nb-dlg .nb-vis{min-height:0;aspect-ratio:16/9;display:block;background:var(--g) var(--img) center/cover no-repeat}
+.nb-dlg .nb-vis::before{inset:0;background:linear-gradient(180deg,rgba(10,35,24,0) 55%,rgba(10,35,24,.35));background-size:auto}
+.nb-dlg .nb-ico{display:none}
+.nb-dlg .nb-cat{background:#fff;color:var(--forest)}
+.nb-dtop{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px}
+.nb-dtop #nb-dmeta .nb-meta{margin:0}
+.nb-shrow{display:flex;align-items:center;gap:8px}
+.nb-shrow a,.nb-shrow button{display:grid;place-items:center;width:38px;height:38px;padding:0;border:1px solid #cfdfba;border-radius:50%;background:#fff;color:var(--green);text-decoration:none;cursor:pointer;box-shadow:none;transition:background-color .2s,color .2s,border-color .2s}
+.nb-shrow .ic{width:18px;height:18px}
+.nb-shrow a:hover,.nb-shrow button:hover,.nb-shrow a:focus-visible,.nb-shrow button:focus-visible{background:var(--green);border-color:var(--green);color:#fff;outline:0}
+.nb-shrow button.ok{background:var(--green);border-color:var(--green);color:var(--lime)}
+@media (max-width:520px){.nb-dtop{flex-direction:column;align-items:flex-start}}
+.nb-dtop{margin-bottom:18px}
+
+/* News popup v2 */
+.nb-dlg{width:min(780px,calc(100% - 32px));max-height:min(92dvh,900px);border-radius:20px}
+.nb-dlg .nb-x{position:absolute;right:14px;top:14px;z-index:5;width:42px;height:42px;border:0;border-radius:50%;background:#fff;color:var(--forest);box-shadow:0 2px 10px rgba(10,35,24,.25)}
+.nb-dlg .nb-x:hover,.nb-dlg .nb-x:focus-visible{background:var(--forest);color:#fff;transform:none}
+.nb-dlg .nb-dbody{padding:0}
+.nb-dlg .nb-vis{aspect-ratio:2/1;max-height:340px;width:100%}
+.nb-dinner{max-width:680px;margin:0 auto;padding:clamp(22px,4vw,36px) clamp(20px,4vw,32px) clamp(24px,4vw,36px)}
+.nb-dinner h2{margin:0 0 .6em;font-size:clamp(1.6rem,3.2vw,2.2rem);line-height:1.2;letter-spacing:-.02em;color:var(--forest)}
+.nb-dtop{padding-bottom:16px;margin-bottom:20px;border-bottom:1px solid #e3ecd9}
+.nb-dinner .nb-prose p{margin:0 0 1.1em;font-size:1.0625rem;line-height:1.8;color:#34463c}
+
+@media (max-width:640px){
+  .nb-dlg{width:100vw;max-width:none;max-height:94dvh;margin:auto 0 0;border-radius:20px 20px 0 0}
+  .nb-dlg .nb-vis{aspect-ratio:16/9}
+}
+
+/* News pagination */
+.nb-pager{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:clamp(28px,4vw,44px)}
+.nb-pager[hidden]{display:none}
+.nb-pg{display:inline-flex;align-items:center;justify-content:center;min-width:44px;height:44px;padding:0 14px;border:1px solid #cfdfba;border-radius:var(--radius);background:#fff;color:var(--forest);font:600 .95rem/1 var(--font-b);cursor:pointer;box-shadow:none;transition:background-color .2s,color .2s,border-color .2s}
+.nb-pg.wide{padding:0 18px}
+.nb-pg:hover:not(:disabled):not([aria-current]){border-color:var(--green);color:var(--green)}
+.nb-pg[aria-current="page"]{background:var(--green);border-color:var(--green);color:#fff;cursor:default}
+.nb-pg:disabled{opacity:.45;cursor:not-allowed}
+.nb-pg:focus-visible{outline:2px solid var(--green);outline-offset:2px}
+@media (max-width:480px){.nb-pg{min-width:40px;height:40px;padding:0 10px}.nb-pg.wide{padding:0 12px}}
   </style>
   </head>
   <body class="home"><svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
@@ -9740,19 +9868,12 @@ form .btn,form .btn:hover,form .btn:focus-visible{box-shadow:none !important}
           </div></section>
 </div>
       <div class="view" id="v-team" hidden>
-        <section class="pg-hero">
+        <header class="pg-head">
           <div class="wrap">
-            <nav class="crumbs" aria-label="Breadcrumb"><a href="#home">Home</a><span>/</span><span aria-current="page">Team</span></nav>
-            <div class="pg-hero-grid">
-              <div class="pg-hero-copy">
-                <span class="pg-eyebrow">Our people</span>
-                <h1>The People Behind the Network</h1>
-                <p class="lead">Researchers, project developers and educators building Bangladesh’s carbon future, together, with evidence, integrity and care.</p>
-              </div>
-              <ul class="pg-facts"><li><b>25+</b><span>Team members</span></li><li><b>8</b><span>Service areas</span></li><li><b>12+</b><span>Partners</span></li></ul>
-            </div>
+            <h1>Team</h1>
+            <p>Researchers, project developers and educators building Bangladesh’s carbon future with evidence, integrity and care.</p>
           </div>
-        </section>
+        </header>
         <section class="section">
           <div class="wrap">
             <div class="sec-head split reveal">
@@ -10181,67 +10302,19 @@ form .btn,form .btn:hover,form .btn:focus-visible{box-shadow:none !important}
         </section>
       </div>
       <div class="view" id="v-news" hidden>
-        <section class="pg-hero">
+        <header class="pg-head">
           <div class="wrap">
-            <nav class="crumbs" aria-label="Breadcrumb"><a href="#home">Home</a><span>/</span><span aria-current="page">News</span></nav>
-            <div class="pg-hero-grid">
-              <div class="pg-hero-copy">
-                <span class="pg-eyebrow">Newsroom</span>
-                <h1>News</h1>
-                <p class="lead">Stories, explainers and updates from the Bangladesh Carbon Network: learn carbon, follow our work and see what comes next.</p>
-                <div class="pg-actions"><button class="btn btn-green" type="button" id="nb-jump">Subscribe for updates<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button><a class="btn btn-outline" href="#/contact">Share a story</a></div>
-              </div>
-              <ul class="pg-facts"><li><b>9</b><span>Stories</span></li><li><b>4</b><span>Blogs</span></li><li><b>2</b><span>Events</span></li></ul>
-            </div>
+            <h1>News</h1>
+            <p>Stories, explainers and updates from the Bangladesh Carbon Network.</p>
           </div>
-        </section>
-        <section class="section">
-          <div class="wrap">
-            <div class="sec-head split reveal">
-              <h2>Featured story</h2>
-              <p>Our most important update right now.</p>
-            </div>
-            <article class="nb-feat reveal" data-cat="events">
-              <div class="nb-vis"
-                style="--g:#18251E;--img:url(https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&amp;fit=crop&amp;w=1200&amp;q=70)">
-                <span class="nb-cat">Events</span><span class="nb-ico" aria-hidden="true"><svg class="ic"
-                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path
-                      d="M8 2v4M16 2v4M3 10h18M5 4h14a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" />
-                  </svg></span></div>
-              <div class="nb-body">
-                <div class="nb-meta"><time datetime="2026-11-13">13 Nov 2026</time><span>3 min read</span>
-                </div>
-                <h3 class="nb-t">Carbon Fest: Register for the next national carbon Olympiad</h3>
-                <p>School, college and university students can take part in the national carbon Olympiad. See
-                  who can join, how to prepare and where to start.</p><button class="rs-link nb-open"
-                  type="button"
-                  aria-label="Read story: Carbon Fest: Register for the next national carbon Olympiad">Read
-                  story <svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg></button>
-                <div class="nb-full" hidden>
-                  <p>Carbon Fest is the Network’s national carbon Olympiad for school, college and university
-                    students. Participants test what they know about carbon, climate and the carbon market
-                    through papers set for each category.</p>
-                  <p>To prepare, download the syllabus for your category and practise with the question
-                    archive on the Resources page. Registration details and key dates are shared when you
-                    register your interest through the contact form.</p>
-                </div>
-              </div>
-            </article>
-          </div>
-        </section>
+        </header>
         <section class="section alt" id="nb-all">
           <div class="wrap">
             <div class="sec-head split reveal">
-              <h2>All stories</h2>
-              <p>Browse by category or search by keyword to find what you need.</p>
+              <h2>All News</h2>
             </div>
             <div class="rs-bar reveal">
-              <div class="rs-tabs" role="group" aria-label="Filter stories"><button type="button"
+              <div class="rs-tabs" role="group" aria-label="Filter news"><button type="button"
                   class="rs-tab" data-f="all" aria-pressed="true">All<span>9</span></button><button
                   type="button" class="rs-tab" data-f="news"
                   aria-pressed="false">News<span>3</span></button><button type="button" class="rs-tab"
@@ -10251,8 +10324,8 @@ form .btn,form .btn:hover,form .btn:focus-visible{box-shadow:none !important}
                   stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                   <circle cx="11" cy="11" r="8" />
                   <path d="m21 21-4.3-4.3" />
-                </svg><input id="nb-search" type="search" placeholder="Search stories"
-                  aria-label="Search stories" autocomplete="off"></div>
+                </svg><input id="nb-search" type="search" placeholder="Search news"
+                  aria-label="Search news" autocomplete="off"></div>
             </div>
             <p class="sr-only" id="nb-count" role="status" aria-live="polite" aria-atomic="true"></p>
             <div class="nb-grid" id="nb-grid">
@@ -10511,15 +10584,10 @@ form .btn,form .btn:hover,form .btn:focus-visible{box-shadow:none !important}
                 </div>
               </article>
             </div>
-            <p class="rs-empty" id="nb-empty" hidden>No stories match your search. Try another keyword or
-              browse all stories.</p>
+            <p class="rs-empty" id="nb-empty" hidden>No news matches your search. Try another keyword or
+              browse all news.</p>
             <div class="nb-foot">
-              <p class="nb-status" id="nb-status"></p><button class="btn btn-outline nb-more" id="nb-more"
-                type="button">Load more stories<svg class="ic" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"
-                  aria-hidden="true">
-                  <path d="M12 5v14M19 12l-7 7-7-7" />
-                </svg></button>
+              <p class="nb-status" id="nb-status"></p><nav class="nb-pager" id="nb-pager" aria-label="News pages"></nav>
             </div>
           </div>
         </section>
@@ -10544,21 +10612,30 @@ form .btn,form .btn:hover,form .btn:focus-visible{box-shadow:none !important}
           </div>
         </section>
         <dialog class="nb-dlg" id="nb-dlg" aria-labelledby="nb-dt">
-          <div class="nb-vis" id="nb-dvis"><span class="nb-cat" id="nb-dcat"></span><span class="nb-ico"
-              id="nb-dico" aria-hidden="true"></span><button class="nb-x" type="button"
+          
+          <button class="nb-x" type="button"
               aria-label="Close story"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor"
                 stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                 <path d="M18 6 6 18M6 6l12 12" />
-              </svg></button></div>
+              </svg></button>
           <div class="nb-dbody">
-            <div id="nb-dmeta"></div>
+            <div class="nb-vis" id="nb-dvis"><span class="nb-cat" id="nb-dcat"></span><span class="nb-ico"
+              id="nb-dico" aria-hidden="true"></span></div>
+            <div class="nb-dinner">
+            <div class="nb-dtop"><div id="nb-dmeta"></div>
+            <div class="nb-shrow" id="nb-shrow" role="group" aria-label="Share this story">
+              <a data-net="facebook" title="Facebook" aria-label="Facebook" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg><span class="sr-only">Facebook</span></a>
+              <a data-net="whatsapp" title="WhatsApp" aria-label="WhatsApp" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 21l1.7-5A8.5 8.5 0 1 1 8 19.3z"/><path d="M9 9.5c0 3 2.5 5.5 5.5 5.5l1-1.5-2-1-1 .8a4 4 0 0 1-1.6-1.6l.8-1-1-2z"/></svg><span class="sr-only">WhatsApp</span></a>
+              <a data-net="telegram" title="Telegram" aria-label="Telegram" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 3 2 11l7 2.5L11.5 21l3-4.5L19 20z"/><path d="m9 13.5 9-7"/></svg><span class="sr-only">Telegram</span></a>
+              <a data-net="x" title="X" aria-label="X" target="_blank" rel="noopener"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4l16 16M20 4 4 20"/></svg><span class="sr-only">X</span></a>
+              <a data-net="email" title="Email" aria-label="Email"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg><span class="sr-only">Email</span></a>
+              <button type="button" data-net="copy" title="Copy link" aria-label="Copy link"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="12" height="12" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></svg><span class="sr-only">Copy link</span></button>
+            </div>
+            </div>
             <h2 id="nb-dt"></h2>
             <div class="nb-prose" id="nb-dtext"></div>
-            <div class="nb-dfoot"><a class="btn btn-green" href="#/contact">Contact us<svg class="ic"
-                  viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"
-                  stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <path d="M5 12h14M12 5l7 7-7 7" />
-                </svg></a><button class="btn btn-outline" type="button" data-close>Close</button></div>
+            
+            </div>
           </div>
         </dialog>
       </div>
@@ -10620,265 +10697,124 @@ form .btn,form .btn:hover,form .btn:focus-visible{box-shadow:none !important}
         </section>
       </div>
       <div class="view" id="v-resources" hidden>
-        <section class="pg-hero">
+        <!-- HOW TO ADD CONTENT
+             Documentary: set data-yt="..." on each .rs2-vid to the 11-character YouTube video ID (the part after v= in the link).
+             PDFs / documents: set data-drive="..." on each .rs2-doc to the Google Drive file ID
+             (from https://drive.google.com/file/d/FILE_ID/view). Share the file as "Anyone with the link can view".
+             To add more, copy an existing card inside the same tab panel. -->
+        <header class="pg-head">
           <div class="wrap">
-            <nav class="crumbs" aria-label="Breadcrumb"><a href="#home">Home</a><span>/</span><span aria-current="page">Resources</span></nav>
-            <div class="pg-hero-grid">
-              <div class="pg-hero-copy">
-                <span class="pg-eyebrow">Resource library</span>
-                <h1>Resources</h1>
-                <p class="lead">Syllabus, past questions and practical guides to help you learn carbon, prepare for Carbon Fest and build good projects.</p>
-                <div class="pg-actions"><a class="btn btn-green" href="#/contact">Request a resource<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a><a class="btn btn-outline" href="#carbon-fest">About Carbon Fest</a></div>
-              </div>
-              <ul class="pg-facts"><li><b>13</b><span>Resources</span></li><li><b>3</b><span>Collections</span></li><li><b>6</b><span>Formats</span></li></ul>
+            <h1>Resources</h1>
+            <p>Syllabus, past questions, videos and practical guides to help you learn carbon and build good projects.</p>
+          </div>
+        </header>
+        <section class="section rs2">
+          <div class="wrap rs2-layout">
+            <div class="rs2-tabs" role="tablist" aria-label="Resource categories" aria-orientation="vertical"><button type="button" class="rs2-tab" role="tab" id="rs2-t-video" data-tab="video" aria-controls="rs2-p-video" aria-selected="true" tabindex="0"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="5" width="20" height="14" rx="3"/><path d="m10 9 5 3-5 3z"/></svg><span class="rs2-tl">Documentary</span><span class="rs2-n">3</span></button><button type="button" class="rs2-tab" role="tab" id="rs2-t-pdf" data-tab="pdf" aria-controls="rs2-p-pdf" aria-selected="false" tabindex="-1"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8M16 13H8M16 17H8"/></svg><span class="rs2-tl">PDF Section</span><span class="rs2-n">4</span></button><button type="button" class="rs2-tab" role="tab" id="rs2-t-fest" data-tab="fest" aria-controls="rs2-p-fest" aria-selected="false" tabindex="-1"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 21h8M12 17v4M7 4h10v5a5 5 0 0 1-10 0zM17 5h3v2a3 3 0 0 1-3 3M7 5H4v2a3 3 0 0 0 3 3"/></svg><span class="rs2-tl">Carbon Fest</span><span class="rs2-n">5</span></button><button type="button" class="rs2-tab" role="tab" id="rs2-t-guide" data-tab="guide" aria-controls="rs2-p-guide" aria-selected="false" tabindex="-1"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16M19 9l-5 5-4-4-3 3"/></svg><span class="rs2-tl">Project Guides</span><span class="rs2-n">4</span></button></div>
+            <div class="rs2-panels">
+          <div class="rs2-panel" id="rs2-p-video" role="tabpanel" aria-labelledby="rs2-t-video" tabindex="0">
+            <div class="rs2-grid rs2-grid-vid">
+              <article class="rs2-vid" data-yt="YOUTUBE_VIDEO_ID">
+                <div class="rs2-frame"><button class="rs2-play" type="button" aria-label="Play video 1"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 5 11 7-11 7z"/></svg></button><span class="rs2-soon">Video coming soon</span></div>
+                <div class="rs2-vid-body"><h3>Video title 1</h3><p>Short description of this video.</p></div>
+              </article>
+              <article class="rs2-vid" data-yt="YOUTUBE_VIDEO_ID">
+                <div class="rs2-frame"><button class="rs2-play" type="button" aria-label="Play video 2"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 5 11 7-11 7z"/></svg></button><span class="rs2-soon">Video coming soon</span></div>
+                <div class="rs2-vid-body"><h3>Video title 2</h3><p>Short description of this video.</p></div>
+              </article>
+              <article class="rs2-vid" data-yt="YOUTUBE_VIDEO_ID">
+                <div class="rs2-frame"><button class="rs2-play" type="button" aria-label="Play video 3"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="m8 5 11 7-11 7z"/></svg></button><span class="rs2-soon">Video coming soon</span></div>
+                <div class="rs2-vid-body"><h3>Video title 3</h3><p>Short description of this video.</p></div>
+              </article>
+            </div>
+          </div>
+          <div class="rs2-panel" id="rs2-p-pdf" role="tabpanel" aria-labelledby="rs2-t-pdf" hidden tabindex="0">
+            <div class="rs2-grid rs2-grid-doc">
+              <article class="rs2-doc" data-drive="DRIVE_FILE_ID">
+                <svg class="ic rs2-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg>
+                <div class="rs2-doc-body"><span class="rs2-type">PDF</span><h3>Carbon literacy basics</h3><p>Core carbon ideas: emissions, sinks, offsets and net zero.</p></div>
+                <div class="rs2-acts"><button class="rs2-view" type="button" aria-label="View Carbon literacy basics"><span>View</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></button><a class="rs2-ext" href="#" target="_blank" rel="noopener" aria-label="Open Carbon literacy basics in Drive"><span>Open in Drive</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a></div>
+              </article>
+              <article class="rs2-doc" data-drive="DRIVE_FILE_ID">
+                <svg class="ic rs2-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg>
+                <div class="rs2-doc-body"><span class="rs2-type">PDF</span><h3>Carbon markets and credits</h3><p>How carbon credits are created, verified and sold.</p></div>
+                <div class="rs2-acts"><button class="rs2-view" type="button" aria-label="View Carbon markets and credits"><span>View</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></button><a class="rs2-ext" href="#" target="_blank" rel="noopener" aria-label="Open Carbon markets and credits in Drive"><span>Open in Drive</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a></div>
+              </article>
+              <article class="rs2-doc" data-drive="DRIVE_FILE_ID">
+                <svg class="ic rs2-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg>
+                <div class="rs2-doc-body"><span class="rs2-type">PDF</span><h3>Article 6 in plain language</h3><p>What Article 6 and NDC 3.0 mean for Bangladesh.</p></div>
+                <div class="rs2-acts"><button class="rs2-view" type="button" aria-label="View Article 6 in plain language"><span>View</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></button><a class="rs2-ext" href="#" target="_blank" rel="noopener" aria-label="Open Article 6 in plain language in Drive"><span>Open in Drive</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a></div>
+              </article>
+              <article class="rs2-doc" data-drive="DRIVE_FILE_ID">
+                <svg class="ic rs2-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20V3H6.5A2.5 2.5 0 0 0 4 5.5z"/><path d="M4 19.5A2.5 2.5 0 0 0 6.5 22H20v-5"/></svg>
+                <div class="rs2-doc-body"><span class="rs2-type">PDF</span><h3>ESG and ISO 14064 primer</h3><p>An introduction to GHG accounting and ESG reporting.</p></div>
+                <div class="rs2-acts"><button class="rs2-view" type="button" aria-label="View ESG and ISO 14064 primer"><span>View</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></button><a class="rs2-ext" href="#" target="_blank" rel="noopener" aria-label="Open ESG and ISO 14064 primer in Drive"><span>Open in Drive</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a></div>
+              </article>
+            </div>
+          </div>
+          <div class="rs2-panel" id="rs2-p-fest" role="tabpanel" aria-labelledby="rs2-t-fest" hidden tabindex="0">
+            <div class="rs2-grid rs2-grid-doc">
+              <article class="rs2-doc" data-drive="DRIVE_FILE_ID">
+                <svg class="ic rs2-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8M16 13H8M16 17H8"/></svg>
+                <div class="rs2-doc-body"><span class="rs2-type">PDF</span><h3>Syllabus: School Level</h3><p>Topics and weightage for the school-level Olympiad.</p></div>
+                <div class="rs2-acts"><button class="rs2-view" type="button" aria-label="View Syllabus: School Level"><span>View</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></button><a class="rs2-ext" href="#" target="_blank" rel="noopener" aria-label="Open Syllabus: School Level in Drive"><span>Open in Drive</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a></div>
+              </article>
+              <article class="rs2-doc" data-drive="DRIVE_FILE_ID">
+                <svg class="ic rs2-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8M16 13H8M16 17H8"/></svg>
+                <div class="rs2-doc-body"><span class="rs2-type">PDF</span><h3>Syllabus: College Level</h3><p>Topics and weightage for the college-level Olympiad.</p></div>
+                <div class="rs2-acts"><button class="rs2-view" type="button" aria-label="View Syllabus: College Level"><span>View</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></button><a class="rs2-ext" href="#" target="_blank" rel="noopener" aria-label="Open Syllabus: College Level in Drive"><span>Open in Drive</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a></div>
+              </article>
+              <article class="rs2-doc" data-drive="DRIVE_FILE_ID">
+                <svg class="ic rs2-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8M16 13H8M16 17H8"/></svg>
+                <div class="rs2-doc-body"><span class="rs2-type">PDF</span><h3>Syllabus: University Level</h3><p>Topics and weightage for the university-level Olympiad.</p></div>
+                <div class="rs2-acts"><button class="rs2-view" type="button" aria-label="View Syllabus: University Level"><span>View</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></button><a class="rs2-ext" href="#" target="_blank" rel="noopener" aria-label="Open Syllabus: University Level in Drive"><span>Open in Drive</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a></div>
+              </article>
+              <article class="rs2-doc" data-drive="DRIVE_FILE_ID">
+                <svg class="ic rs2-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8M16 13H8M16 17H8"/></svg>
+                <div class="rs2-doc-body"><span class="rs2-type">PDF</span><h3>Question Archive 2025</h3><p>Practise with past questions before the next edition.</p></div>
+                <div class="rs2-acts"><button class="rs2-view" type="button" aria-label="View Question Archive 2025"><span>View</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></button><a class="rs2-ext" href="#" target="_blank" rel="noopener" aria-label="Open Question Archive 2025 in Drive"><span>Open in Drive</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a></div>
+              </article>
+              <article class="rs2-doc" data-drive="DRIVE_FILE_ID">
+                <svg class="ic rs2-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z"/><path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8M16 13H8M16 17H8"/></svg>
+                <div class="rs2-doc-body"><span class="rs2-type">Document</span><h3>Register for next Carbon Fest</h3><p>Join the national carbon Olympiad as a student today.</p></div>
+                <div class="rs2-acts"><button class="rs2-view" type="button" aria-label="View Register for next Carbon Fest"><span>View</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></button><a class="rs2-ext" href="#" target="_blank" rel="noopener" aria-label="Open Register for next Carbon Fest in Drive"><span>Open in Drive</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a></div>
+              </article>
+            </div>
+          </div>
+          <div class="rs2-panel" id="rs2-p-guide" role="tabpanel" aria-labelledby="rs2-t-guide" hidden tabindex="0">
+            <div class="rs2-grid rs2-grid-doc">
+              <article class="rs2-doc" data-drive="DRIVE_FILE_ID">
+                <svg class="ic rs2-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16M19 9l-5 5-4-4-3 3"/></svg>
+                <div class="rs2-doc-body"><span class="rs2-type">Guide</span><h3>Biochar CDR project checklist</h3><p>From feedstock mapping to registry readiness.</p></div>
+                <div class="rs2-acts"><button class="rs2-view" type="button" aria-label="View Biochar CDR project checklist"><span>View</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></button><a class="rs2-ext" href="#" target="_blank" rel="noopener" aria-label="Open Biochar CDR project checklist in Drive"><span>Open in Drive</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a></div>
+              </article>
+              <article class="rs2-doc" data-drive="DRIVE_FILE_ID">
+                <svg class="ic rs2-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16M19 9l-5 5-4-4-3 3"/></svg>
+                <div class="rs2-doc-body"><span class="rs2-type">Guide</span><h3>AWD rice protocol summary</h3><p>Water-management practice and farmer training at a glance.</p></div>
+                <div class="rs2-acts"><button class="rs2-view" type="button" aria-label="View AWD rice protocol summary"><span>View</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></button><a class="rs2-ext" href="#" target="_blank" rel="noopener" aria-label="Open AWD rice protocol summary in Drive"><span>Open in Drive</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a></div>
+              </article>
+              <article class="rs2-doc" data-drive="DRIVE_FILE_ID">
+                <svg class="ic rs2-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16M19 9l-5 5-4-4-3 3"/></svg>
+                <div class="rs2-doc-body"><span class="rs2-type">Guide</span><h3>dMRV tool selection guide</h3><p>Choosing data tools that keep projects verification-ready.</p></div>
+                <div class="rs2-acts"><button class="rs2-view" type="button" aria-label="View dMRV tool selection guide"><span>View</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></button><a class="rs2-ext" href="#" target="_blank" rel="noopener" aria-label="Open dMRV tool selection guide in Drive"><span>Open in Drive</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a></div>
+              </article>
+              <article class="rs2-doc" data-drive="DRIVE_FILE_ID">
+                <svg class="ic rs2-ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3v16a2 2 0 0 0 2 2h16M19 9l-5 5-4-4-3 3"/></svg>
+                <div class="rs2-doc-body"><span class="rs2-type">Sample</span><h3>Suitability report sample</h3><p>See how we assess sites, practices and communities.</p></div>
+                <div class="rs2-acts"><button class="rs2-view" type="button" aria-label="View Suitability report sample"><span>View</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg></button><a class="rs2-ext" href="#" target="_blank" rel="noopener" aria-label="Open Suitability report sample in Drive"><span>Open in Drive</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a></div>
+              </article>
+            </div>
+          </div>
             </div>
           </div>
         </section>
-        <section class="section">
-          <div class="wrap">
-            <div class="rs-bar reveal">
-              <div class="rs-tabs" role="group" aria-label="Filter resources"><button type="button"
-                  class="rs-tab" data-f="all" aria-pressed="true">All<span>13</span></button><button
-                  type="button" class="rs-tab" data-f="fest" aria-pressed="false">Carbon
-                  Fest<span>5</span></button><button type="button" class="rs-tab" data-f="learn"
-                  aria-pressed="false">Learn<span>4</span></button><button type="button" class="rs-tab"
-                  data-f="guide" aria-pressed="false">Project guides<span>4</span></button></div>
-              <div class="rs-search"><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                  stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                  <circle cx="11" cy="11" r="8" />
-                  <path d="m21 21-4.3-4.3" />
-                </svg><input id="rs-search" type="search" placeholder="Search resources"
-                  aria-label="Search resources" autocomplete="off"></div>
-            </div>
-            <p class="sr-only" id="rs-count" role="status" aria-live="polite" aria-atomic="true"></p>
-            <div class="rs-grid">
-              <article class="rs-card" data-cat="fest"><svg class="ic rs-ic" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                  aria-hidden="true">
-                  <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z" />
-                  <path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8M16 13H8M16 17H8" />
-                </svg>
-                <div class="rs-top"><span class="rs-cat">Carbon Fest</span><span class="rs-type">PDF</span>
-                </div>
-                <h3>Syllabus: School Level</h3>
-                <p>Topics and weightage for the school-level Olympiad.</p><a class="rs-link"
-                  aria-label="Request this resource: Syllabus: School Level" href="#/contact"
-                  data-interest="Carbon Fest">Request this resource <svg class="ic" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                    stroke-linejoin="round" aria-hidden="true">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg></a>
-              </article>
-              <article class="rs-card" data-cat="fest"><svg class="ic rs-ic" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                  aria-hidden="true">
-                  <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z" />
-                  <path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8M16 13H8M16 17H8" />
-                </svg>
-                <div class="rs-top"><span class="rs-cat">Carbon Fest</span><span class="rs-type">PDF</span>
-                </div>
-                <h3>Syllabus: College Level</h3>
-                <p>Topics and weightage for the college-level Olympiad.</p><a class="rs-link"
-                  aria-label="Request this resource: Syllabus: College Level" href="#/contact"
-                  data-interest="Carbon Fest">Request this resource <svg class="ic" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                    stroke-linejoin="round" aria-hidden="true">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg></a>
-              </article>
-              <article class="rs-card" data-cat="fest"><svg class="ic rs-ic" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                  aria-hidden="true">
-                  <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7z" />
-                  <path d="M14 2v4a2 2 0 0 0 2 2h4M10 9H8M16 13H8M16 17H8" />
-                </svg>
-                <div class="rs-top"><span class="rs-cat">Carbon Fest</span><span class="rs-type">PDF</span>
-                </div>
-                <h3>Syllabus: University Level</h3>
-                <p>Topics and weightage for the university-level Olympiad.</p><a class="rs-link"
-                  aria-label="Request this resource: Syllabus: University Level" href="#/contact"
-                  data-interest="Carbon Fest">Request this resource <svg class="ic" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                    stroke-linejoin="round" aria-hidden="true">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg></a>
-              </article>
-              <article class="rs-card" data-cat="fest"><svg class="ic rs-ic" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                  aria-hidden="true">
-                  <rect width="20" height="5" x="2" y="3" rx="1" />
-                  <path d="M4 8v11a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8M10 12h4" />
-                </svg>
-                <div class="rs-top"><span class="rs-cat">Carbon Fest</span><span class="rs-type">PDF</span>
-                </div>
-                <h3>Question Archive 2025</h3>
-                <p>Practise with past questions before the next edition.</p><a class="rs-link"
-                  aria-label="Request this resource: Question Archive 2025" href="#/contact"
-                  data-interest="Carbon Fest">Request this resource <svg class="ic" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                    stroke-linejoin="round" aria-hidden="true">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg></a>
-              </article>
-              <article class="rs-card" data-cat="fest"><svg class="ic rs-ic" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                  aria-hidden="true">
-                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M19 8v6M22 11h-6" />
-                  <circle cx="9" cy="7" r="4" />
-                </svg>
-                <div class="rs-top"><span class="rs-cat">Carbon Fest</span><span class="rs-type">Form</span>
-                </div>
-                <h3>Register for next Carbon Fest</h3>
-                <p>Join the national carbon Olympiad as a student today.</p><a
-                  class="rs-link" aria-label="Request this resource: Register for next Carbon Fest"
-                  href="#/contact" data-interest="Carbon Fest">Request this resource <svg class="ic"
-                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                    stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg></a>
-              </article>
-              <article class="rs-card" data-cat="learn"><svg class="ic rs-ic" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                  aria-hidden="true">
-                  <path
-                    d="M12 7v14M3 18a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1h5a4 4 0 0 1 4 4 4 4 0 0 1 4-4h5a1 1 0 0 1 1 1v13a1 1 0 0 1-1 1h-6a3 3 0 0 0-3 3 3 3 0 0 0-3-3z" />
-                </svg>
-                <div class="rs-top"><span class="rs-cat">Learn</span><span class="rs-type">Guide</span></div>
-                <h3>Carbon literacy basics</h3>
-                <p>Core carbon ideas: emissions, sinks, offsets and net zero.</p><a class="rs-link"
-                  aria-label="Request this resource: Carbon literacy basics" href="#/contact"
-                  data-interest="Other">Request this resource <svg class="ic" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                    aria-hidden="true">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg></a>
-              </article>
-              <article class="rs-card" data-cat="learn"><svg class="ic rs-ic" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                  aria-hidden="true">
-                  <path d="M3 3v16a2 2 0 0 0 2 2h16M19 9l-5 5-4-4-3 3" />
-                </svg>
-                <div class="rs-top"><span class="rs-cat">Learn</span><span class="rs-type">Guide</span></div>
-                <h3>Carbon markets and credits</h3>
-                <p>How carbon credits are created, verified and sold.</p><a class="rs-link"
-                  aria-label="Request this resource: Carbon markets and credits" href="#/contact"
-                  data-interest="Other">Request this resource <svg class="ic" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                    aria-hidden="true">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg></a>
-              </article>
-              <article class="rs-card" data-cat="learn"><svg class="ic rs-ic" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                  aria-hidden="true">
-                  <circle cx="12" cy="12" r="10" />
-                  <path d="M2 12h20M12 2a14.5 14.5 0 0 1 0 20 14.5 14.5 0 0 1 0-20" />
-                </svg>
-                <div class="rs-top"><span class="rs-cat">Learn</span><span class="rs-type">Brief</span></div>
-                <h3>Article 6 in plain language</h3>
-                <p>What Article 6 and NDC 3.0 mean for Bangladesh.</p><a class="rs-link"
-                  aria-label="Request this resource: Article 6 in plain language" href="#/contact"
-                  data-interest="Other">Request this resource <svg class="ic" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                    aria-hidden="true">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg></a>
-              </article>
-              <article class="rs-card" data-cat="learn"><svg class="ic rs-ic" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                  aria-hidden="true">
-                  <path
-                    d="m16 16 3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1zM2 16l3-8 3 8c-.87.65-1.92 1-3 1s-2.13-.35-3-1zM7 21h10M12 3v18M3 7h2c2 0 5-1 7-2 2 1 5 2 7 2h2" />
-                </svg>
-                <div class="rs-top"><span class="rs-cat">Learn</span><span class="rs-type">Guide</span></div>
-                <h3>ESG and ISO 14064 primer</h3>
-                <p>An introduction to GHG accounting and ESG reporting.</p><a class="rs-link"
-                  aria-label="Request this resource: ESG and ISO 14064 primer" href="#/contact"
-                  data-interest="Carbon &amp; Sustainability Assessment">Request this resource <svg class="ic" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                    stroke-linejoin="round" aria-hidden="true">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg></a>
-              </article>
-              <article class="rs-card" data-cat="guide"><svg class="ic rs-ic" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                  aria-hidden="true">
-                  <path
-                    d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10zM2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
-                </svg>
-                <div class="rs-top"><span class="rs-cat">Project guides</span><span
-                    class="rs-type">Checklist</span></div>
-                <h3>Biochar CDR project checklist</h3>
-                <p>From feedstock mapping to registry readiness.</p><a class="rs-link"
-                  aria-label="Request this resource: Biochar CDR project checklist" href="#/contact"
-                  data-interest="Biochar">Request this resource <svg class="ic" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                    stroke-linejoin="round" aria-hidden="true">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg></a>
-              </article>
-              <article class="rs-card" data-cat="guide"><svg class="ic rs-ic" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                  aria-hidden="true">
-                  <path
-                    d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10zM2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
-                </svg>
-                <div class="rs-top"><span class="rs-cat">Project guides</span><span
-                    class="rs-type">Guide</span></div>
-                <h3>AWD rice protocol summary</h3>
-                <p>Water-management practice and farmer training at a glance.</p><a class="rs-link"
-                  aria-label="Request this resource: AWD rice protocol summary" href="#/contact"
-                  data-interest="AWD">Request this resource <svg class="ic" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                    aria-hidden="true">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg></a>
-              </article>
-              <article class="rs-card" data-cat="guide"><svg class="ic rs-ic" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                  aria-hidden="true">
-                  <path d="M3 3v16a2 2 0 0 0 2 2h16M19 9l-5 5-4-4-3 3" />
-                </svg>
-                <div class="rs-top"><span class="rs-cat">Project guides</span><span
-                    class="rs-type">Guide</span></div>
-                <h3>dMRV tool selection guide</h3>
-                <p>Choosing data tools that keep projects verification-ready.</p><a class="rs-link"
-                  aria-label="Request this resource: dMRV tool selection guide" href="#/contact"
-                  data-interest="dMRV">Request this resource <svg class="ic" viewBox="0 0 24 24" fill="none"
-                    stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                    aria-hidden="true">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg></a>
-              </article>
-              <article class="rs-card" data-cat="guide"><svg class="ic rs-ic" viewBox="0 0 24 24" fill="none"
-                  stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"
-                  aria-hidden="true">
-                  <path
-                    d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2M9 2h6a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1zM9 14l2 2 4-4" />
-                </svg>
-                <div class="rs-top"><span class="rs-cat">Project guides</span><span
-                    class="rs-type">Sample</span></div>
-                <h3>Suitability report sample</h3>
-                <p>See how we assess sites, practices and communities.</p><a class="rs-link"
-                  aria-label="Request this resource: Suitability report sample" href="#/contact"
-                  data-interest="Carbon &amp; Sustainability Assessment">Request this resource <svg class="ic" viewBox="0 0 24 24"
-                    fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                    stroke-linejoin="round" aria-hidden="true">
-                    <path d="M5 12h14M12 5l7 7-7 7" />
-                  </svg></a>
-              </article>
-            </div>
-            <p class="rs-empty" id="rs-empty" hidden>No resources match your search. Try another keyword or
-              request what you need.</p>
-          </div>
-        </section>
+        <dialog class="rs2-dlg" id="rs2-dlg" aria-labelledby="rs2-dt">
+          <div class="rs2-dhead"><h2 id="rs2-dt">Document</h2><a class="rs2-ext" id="rs2-dext" href="#" target="_blank" rel="noopener"><span>Open in Drive</span><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg></a><button type="button" class="rs2-x" aria-label="Close" data-close><svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 6 6 18M6 6l12 12"/></svg></button></div>
+          <div class="rs2-dbody"><iframe id="rs2-dfr" title="Document preview" loading="lazy" allow="autoplay" referrerpolicy="no-referrer"></iframe><p class="rs2-dmsg" id="rs2-dmsg" hidden>This document will be available soon.</p></div>
+        </dialog>
         <section class="section dark cta-band">
           <div class="wrap reveal">
-            <h2>Can't find what you need?</h2><a class="btn btn-lime btn-lg" href="#/contact">Contact us<svg
-                class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
-                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <path d="M5 12h14M12 5l7 7-7 7" />
-              </svg></a>
+            <h2>Can't find what you need?</h2><a class="btn btn-lime btn-lg" href="#/contact">Contact us<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
           </div>
         </section>
       </div>
@@ -11581,48 +11517,90 @@ form .btn,form .btn:hover,form .btn:focus-visible{box-shadow:none !important}
     (function() {
       var v = document.getElementById('v-resources');
       if (!v) return;
-      var tabs = [].slice.call(v.querySelectorAll('.rs-tab')),
-        cards = [].slice.call(v.querySelectorAll('.rs-card')),
-        q = document.getElementById('rs-search'),
-        empty = document.getElementById('rs-empty'),
-        f = 'all';
-      var cnt = document.getElementById('rs-count'),
-        tm = 0;
+      var tabs = [].slice.call(v.querySelectorAll('.rs2-tab')),
+        panels = [].slice.call(v.querySelectorAll('.rs2-panel')),
+        dlg = document.getElementById('rs2-dlg'),
+        fr = document.getElementById('rs2-dfr'),
+        msg = document.getElementById('rs2-dmsg'),
+        ext = document.getElementById('rs2-dext'),
+        ttl = document.getElementById('rs2-dt'),
+        root = document.documentElement;
+      var YT = /^[\w-]{11}$/, DR = /^[\w-]{20,}$/;
 
-      function say(n) {
-        cnt.textContent = n === 0 ? 'No resources found' : n + (n === 1 ? ' resource' : ' resources') +
-          ' found';
-      }
-
-      function apply() {
-        var t = q.value.trim().toLowerCase(),
-          n = 0;
-        cards.forEach(function(c) {
-          var ok = (f === 'all' || c.dataset.cat === f) && (!t || c.textContent.toLowerCase().indexOf(
-            t) > -1);
-          c.hidden = !ok;
-          if (ok) n++;
+      function show(b, focus) {
+        tabs.forEach(function(x) {
+          var on = x === b;
+          x.setAttribute('aria-selected', on);
+          x.tabIndex = on ? 0 : -1;
         });
-        empty.hidden = n > 0;
-        return n;
+        panels.forEach(function(p) {
+          p.hidden = p.id !== 'rs2-p-' + b.dataset.tab;
+        });
+        if (focus) b.focus();
       }
-      tabs.forEach(function(b) {
-        b.addEventListener('click', function() {
-          f = b.dataset.f;
-          tabs.forEach(function(x) {
-            x.setAttribute('aria-pressed', x === b);
-          });
-          clearTimeout(tm);
-          say(apply());
+      tabs.forEach(function(b, i) {
+        b.addEventListener('click', function() { show(b); });
+        b.addEventListener('keydown', function(e) {
+          var k = e.key, j = -1;
+          if (k === 'ArrowDown' || k === 'ArrowRight') j = (i + 1) % tabs.length;
+          else if (k === 'ArrowUp' || k === 'ArrowLeft') j = (i - 1 + tabs.length) % tabs.length;
+          else if (k === 'Home') j = 0;
+          else if (k === 'End') j = tabs.length - 1;
+          if (j > -1) { e.preventDefault(); show(tabs[j], true); }
         });
       });
-      q.addEventListener('input', function() {
-        var n = apply();
-        clearTimeout(tm);
-        tm = setTimeout(function() {
-          say(n);
-        }, 500);
+
+      /* YouTube cards: valid 11-char ID shows a thumbnail, click loads the player */
+      [].forEach.call(v.querySelectorAll('.rs2-vid'), function(c) {
+        var id = c.dataset.yt, fm = c.querySelector('.rs2-frame');
+        if (!YT.test(id)) { c.classList.add('is-pending'); c.querySelector('.rs2-play').disabled = true; return; }
+        fm.style.backgroundImage = 'url(https://i.ytimg.com/vi/' + id + '/hqdefault.jpg)';
+        c.querySelector('.rs2-play').addEventListener('click', function() {
+          var f = document.createElement('iframe');
+          f.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0';
+          f.title = c.querySelector('h3').textContent;
+          f.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen';
+          f.allowFullscreen = true;
+          fm.innerHTML = '';
+          fm.style.backgroundImage = 'none';
+          fm.appendChild(f);
+        });
       });
+
+      /* Drive document cards */
+      function drive(id, k) { return 'https://drive.google.com/file/d/' + id + '/' + k; }
+      [].forEach.call(v.querySelectorAll('.rs2-doc'), function(c) {
+        var id = c.dataset.drive, ok = DR.test(id),
+          view = c.querySelector('.rs2-view'), lnk = c.querySelector('.rs2-ext');
+        if (!ok) {
+          c.classList.add('is-pending');
+          view.disabled = true;
+          view.firstChild.textContent = 'Coming soon';
+          lnk.removeAttribute('href');
+          lnk.setAttribute('aria-disabled', 'true');
+          lnk.tabIndex = -1;
+          return;
+        }
+        lnk.href = drive(id, 'view');
+        view.addEventListener('click', function() {
+          ttl.textContent = c.querySelector('h3').textContent;
+          ext.href = drive(id, 'view');
+          msg.hidden = true;
+          fr.hidden = false;
+          fr.src = drive(id, 'preview');
+          root.style.overflow = 'hidden';
+          if (typeof dlg.showModal === 'function') dlg.showModal();
+          else dlg.setAttribute('open', '');
+        });
+      });
+      dlg.addEventListener('click', function(e) {
+        if (e.target === dlg || e.target.closest('[data-close]')) dlg.close();
+      });
+      dlg.addEventListener('close', function() {
+        fr.src = 'about:blank';
+        root.style.overflow = '';
+      });
+      addEventListener('hashchange', function() { if (dlg.open) dlg.close(); });
     })();
 
     </script>
@@ -11830,12 +11808,12 @@ form .btn,form .btn:hover,form .btn:focus-visible{box-shadow:none !important}
         tabs = [].slice.call(v.querySelectorAll('.rs-tab')),
         q = document.getElementById('nb-search'),
         empty = document.getElementById('nb-empty'),
-        more = document.getElementById('nb-more'),
+        pager = document.getElementById('nb-pager'),
+        page = 1,
         foot = v.querySelector('.nb-foot'),
         stat = document.getElementById('nb-status'),
         cnt = document.getElementById('nb-count'),
         STEP = 6,
-        limit = STEP,
         f = 'all',
         tm = 0,
         io = null,
@@ -11877,10 +11855,12 @@ form .btn,form .btn:hover,form .btn:focus-visible{box-shadow:none !important}
         var hits = cards.filter(hit),
           shown = 0,
           k = 0,
-          first = null;
+          first = null,
+          pages = Math.max(1, Math.ceil(hits.length / STEP));
+        if (page > pages) page = pages;
         cards.forEach(function(c) {
           var i = hits.indexOf(c),
-            on = i > -1 && i < limit;
+            on = i >= (page - 1) * STEP && i < page * STEP;
           if (on) {
             shown++;
             if (c.hidden) {
@@ -11892,22 +11872,53 @@ form .btn,form .btn:hover,form .btn:focus-visible{box-shadow:none !important}
         });
         empty.hidden = hits.length > 0;
         foot.hidden = hits.length === 0;
-        more.hidden = shown >= hits.length;
-        stat.textContent = hits.length ? 'Showing ' + shown + ' of ' + hits.length + (hits.length === 1 ?
-          ' story' : ' stories') : '';
+        buildPager(pages);
+        stat.textContent = hits.length ? 'Showing ' + ((page - 1) * STEP + 1) + '–' + ((page - 1) * STEP + shown) + ' of ' + hits.length + (hits.length === 1 ?
+          ' item' : ' items') : '';
         return {
           n: hits.length,
           first: first
         };
       }
 
+      function buildPager(pages) {
+        pager.hidden = pages < 2;
+        pager.innerHTML = '';
+        if (pages < 2) return;
+
+        function btn(label, p, cls, aria) {
+          var b = document.createElement('button');
+          b.type = 'button';
+          b.textContent = label;
+          b.className = 'nb-pg' + (cls ? ' ' + cls : '');
+          if (aria) b.setAttribute('aria-label', aria);
+          if (p < 1 || p > pages) b.disabled = true;
+          else if (p === page && /^\d+$/.test(label)) b.setAttribute('aria-current', 'page');
+          b.addEventListener('click', function() {
+            if (p === page) return;
+            page = p;
+            var r = render();
+            say(r.n);
+            var t = document.getElementById('nb-all');
+            t.scrollIntoView({
+              behavior: rm.matches ? 'auto' : 'smooth',
+              block: 'start'
+            });
+          });
+          pager.appendChild(b);
+        }
+        btn('Previous', page - 1, 'wide', 'Previous page');
+        for (var i = 1; i <= pages; i++) btn(String(i), i, '', 'Page ' + i);
+        btn('Next', page + 1, 'wide', 'Next page');
+      }
+
       function say(n) {
-        cnt.textContent = n === 0 ? 'No stories found' : n + (n === 1 ? ' story' : ' stories') + ' found';
+        cnt.textContent = n === 0 ? 'No news found' : n + (n === 1 ? ' item' : ' items') + ' found';
       }
 
       function reset() {
         cards.forEach(leave);
-        limit = STEP;
+        page = 1;
       }
       cards.forEach(function(c) {
         c.hidden = true;
@@ -11925,20 +11936,12 @@ form .btn,form .btn:hover,form .btn:focus-visible{box-shadow:none !important}
         });
       });
       q.addEventListener('input', function() {
-        limit = STEP;
+        page = 1;
         var r = render();
         clearTimeout(tm);
         tm = setTimeout(function() {
           say(r.n);
         }, 500);
-      });
-      more.addEventListener('click', function() {
-        limit += STEP;
-        var r = render();
-        if (r.first) {
-          var b = r.first.querySelector('.nb-open');
-          if (b) b.focus();
-        }
       });
       var dlg = document.getElementById('nb-dlg'),
         root = document.documentElement;
@@ -11956,11 +11959,40 @@ form .btn,form .btn:hover,form .btn:focus-visible{box-shadow:none !important}
         document.getElementById('nb-dmeta').innerHTML = a.querySelector('.nb-meta').outerHTML;
         document.getElementById('nb-dt').textContent = a.querySelector('.nb-t').textContent;
         document.getElementById('nb-dtext').innerHTML = a.querySelector('.nb-full').innerHTML;
+        shareLinks();
         dlg.querySelector('.nb-dbody').scrollTop = 0;
-        lock(true);
-        if (typeof dlg.showModal === 'function') dlg.showModal();
-        else dlg.setAttribute('open', '');
+        if (!dlg.open) {
+          lock(true);
+          if (typeof dlg.showModal === 'function') dlg.showModal();
+          else dlg.setAttribute('open', '');
+        }
       }
+      var shrow = document.getElementById('nb-shrow');
+
+      function shareLinks() {
+        var u = encodeURIComponent(location.href.split('#')[0] + '#/news'),
+          t = encodeURIComponent(document.getElementById('nb-dt').textContent);
+        var m = {
+          facebook: 'https://www.facebook.com/sharer/sharer.php?u=' + u,
+          whatsapp: 'https://wa.me/?text=' + t + '%20' + u,
+          telegram: 'https://t.me/share/url?url=' + u + '&text=' + t,
+          x: 'https://twitter.com/intent/tweet?url=' + u + '&text=' + t,
+          email: 'mailto:?subject=' + t + '&body=' + u
+        };
+        [].forEach.call(shrow.querySelectorAll('a'), function(a) { a.href = m[a.dataset.net]; });
+      }
+      shareLinks();
+      shrow.querySelector('[data-net="copy"]').addEventListener('click', function(e) {
+        var b = e.currentTarget, lab = b.querySelector('span'), url = location.href.split('#')[0] + '#/news';
+        function done() { b.title = 'Copied'; b.classList.add('ok'); setTimeout(function() { b.title = 'Copy link'; b.classList.remove('ok'); }, 1800); }
+        if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(url).then(done, done);
+        else {
+          var i = document.createElement('input');
+          i.value = url; document.body.appendChild(i); i.select();
+          try { document.execCommand('copy'); } catch (x) {}
+          i.remove(); done();
+        }
+      });
       v.addEventListener('click', function(e) {
         var b = e.target.closest('.nb-open');
         if (b) {
@@ -11979,7 +12011,7 @@ form .btn,form .btn:hover,form .btn:focus-visible{box-shadow:none !important}
       });
       var jump = document.getElementById('nb-jump'),
         em = document.getElementById('nb-email');
-      jump.addEventListener('click', function() {
+      if (jump) jump.addEventListener('click', function() {
         var s = document.getElementById('nb-subscribe');
         s.scrollIntoView({
           behavior: rm.matches ? 'auto' : 'smooth',
